@@ -10,6 +10,7 @@ session_start();
 //header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 
 //Constants
+define('CUR_DIR', realpath(dirname(__FILE__)));
 define('MOD_DIR', CUR_DIR . '/modules');
 define('ADMIN_DIR', CUR_DIR . '/admin');
 define('LIB_DIR', CUR_DIR . '/lib');
