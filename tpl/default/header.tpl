@@ -41,4 +41,4 @@
 
 <div id="{if $LOGGED_IN == 'TRUE'}gamebody{else}body{/if}">
 
-{if $GET_MSG != ''}<div class="msg"><span class="red"><strong>{$GET_MSG}</strong></span></div>{/if}
+<div id="messages"></div>

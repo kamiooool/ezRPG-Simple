@@ -14,6 +14,8 @@ class Module_Index extends Base_Module
     */
     public function start()
     {
+		
+		// Checking if user is logged in or not, and show them different landing pages from template
         if (LOGGED_IN)
         {
             $this->tpl->display('home.tpl');

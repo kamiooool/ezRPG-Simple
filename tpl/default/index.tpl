@@ -9,7 +9,7 @@ Welcome to ezRPG! Login now!
 </div>
 
 <div class="right">
-<form method="post" action="index.php?mod=Login">
+<form data-module="Login">
 <label>Username</label>
 <input type="text" name="username" />
 
