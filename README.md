@@ -1,3 +1,13 @@
+NOTICE!
+=====
+The "master" branch here currently serves as a developer one, so please be patient and wait till the RC will be released. You MAY download and use this version at any time, however I am not guarantee it to be working :)
+
+TODO:
+- Multilingual support + language files
+- Remove that messages in URI
+- Plugin info parse right from itself plugin file
+- Modules expansion etc.
+
 ezRPG 1.0 Simple
 =====
 
@@ -12,7 +22,7 @@ However, compatibility between this two versions are not guaranteed, since this 
 Need some help? Check out the [ezRPG Forums](http://www.ezrpgproject.net/)
 
 ## Installation
-1. [Download this one version of ezRPG](https://github.com/scsmash3r/ezrpg-1.0.x/archive/master.zip)
+1. [Download this one version of ezRPG](https://github.com/scsmash3r/ezRPG-Simple/archive/master.zip)
 2. Unzip files and run index.php =) That's all for getting started with engine's environment.
 
 ## License
