@@ -23,13 +23,21 @@ $default_mod = 'Index';
 
 $module_name = ( (isset($_GET['mod']) && ctype_alnum($_GET['mod'])) ? $_GET['mod'] : $default_mod );
 
-//Header hooks
+// Header hooks
 $module_name = $hooks->run_hooks('header', $module_name);
 
-//Begin module
+// Begin module
 $module = ModuleFactory::factory($db, $tpl, $player, $module_name);
 $module->start();
 
-//Footer hooks
+// Footer hooks
 $hooks->run_hooks('footer', $module_name);
+
+// DEBUG MODE
+	if (DEBUG_MODE == 1) {
+		global $debug_log;
+		$debug_info = implode("<br />",$debug_log);
+		echo "<script>$().toastmessage('showNoticeToast', '{$debug_info}');</script>";
+			
+	}
 ?>

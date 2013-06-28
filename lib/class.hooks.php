@@ -110,8 +110,10 @@ class Hooks
                 $call_func = 'hook_' . $hook_function;
                 
                 //Debug mode? Show what's going on
-                if (DEBUG_MODE == 1)
-                    echo 'Calling hook: ', $call_func, '<br />';
+                if (DEBUG_MODE == 1) {
+					global $debug_log;
+                    $debug_log[] = "Calling hook: {$call_func}";
+				}
                 
                 if (!function_exists($call_func))
                     continue;

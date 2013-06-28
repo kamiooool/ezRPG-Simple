@@ -183,8 +183,10 @@ class Db_mysql
             
             $this->query = $query;
             
-            if (DEBUG_MODE === 1)
-                echo $query, '<br />';;
+            if (DEBUG_MODE === 1) {
+				global $debug_log;
+                $debug_log[] = "DB query: {$query}";
+			}
             
             //Execute query
             $result = mysql_query($query, $this->db);

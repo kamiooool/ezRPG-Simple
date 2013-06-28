@@ -22,6 +22,12 @@ require_once CUR_DIR . '/config.php';
 //Show errors?
 (SHOW_ERRORS == 0)?error_reporting(0):error_reporting(E_ALL);
 
+// Clean up DEBUG log, if in debug mode
+if (DEBUG_MODE == 1) {
+	global $debug_log;
+	$debug_log = array();
+}
+
 require_once(CUR_DIR . '/lib.php');
 
 
