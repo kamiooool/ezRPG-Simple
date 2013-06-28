@@ -262,7 +262,7 @@ img {
 	padding-right: 6px;
 	font-family: lucida Grande;
 	font-size: 14px;
-	border: 1px solid #bbb;
+	border: 1px solid #999;
 	display: block;
 	position: relative;
 	margin: 0 0 12px 0;
@@ -274,12 +274,12 @@ img {
 }
 
 .toast-item-close {
+    background:url(http://cdn1.iconfinder.com/data/icons/defaulticon/icons/png/16x16/cancel.png);
     width:22px;
     height:22px;
     position: absolute;
     top:7px;
     right:7px;
-	background:#000;
 }
 
 .toast-item-image {
@@ -290,6 +290,23 @@ img {
     margin-top: -16px;
     left: 10px;
 }
+
+.toast-item-image-notice {
+    background:url(http://cdn1.iconfinder.com/data/icons/SOPHISTIQUENIGHT/mail_icons/png/32/virus_definitions.png);
+}
+
+.toast-item-image-success {
+    background:url(http://cdn1.iconfinder.com/data/icons/fatcow/32/accept.png);
+}
+
+.toast-item-image-warning {
+    background:url(http://cdn1.iconfinder.com/data/icons/woocons1/Sign%20Warning.png);
+}
+
+.toast-item-image-error {
+    background:url(http://cdn3.iconfinder.com/data/icons/tango-icon-library/48/dialog-error-32.png);
+}
+
 
 /**
  * toast types
