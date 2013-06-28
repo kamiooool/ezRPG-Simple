@@ -35,6 +35,7 @@ function hook_check_session($db, &$tpl, $player, $args = 0)
     else
     {
         define('LOGGED_IN', false);
+		$tpl->assign('LOGGED_IN', 'FALSE');
     }
     
     return $player;
