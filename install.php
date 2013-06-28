@@ -326,6 +326,8 @@ CONF;
             file_put_contents('config.php', $config);
             echo '<p>Config file written.</p>';
             echo '<p><a href="install.php?act=4" class="pure-button pure-button-success">Continue to next step</a></p>';
+			displayFooter();
+			exit();
         } else {
             echo '<p><strong>Sorry, there were some problems:</strong><br /><span style="color:#f20">'.$msg.'</span></p>';
             
