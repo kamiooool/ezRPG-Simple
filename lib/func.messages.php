@@ -20,7 +20,25 @@ function showMsg($msg_text, $msg_style=0)
 {
 	// Here we are checking, if the file with the message generated is accessed via AJAX - if directly, just return to index page so to avoid unnecesary bald page view :)
 	if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')) {
-		echo $msg_text;
+	
+		// Applying a class to <span> element, according to msg_style var - you can define looks in style.css theme file
+		switch ($msg_style) {
+			case 0:
+				$msg_style = "default";
+				break;
+			case 1:
+				$msg_style = "error";
+				break;
+			case 2:
+				$msg_style = "warning";
+				break;
+			case 3:
+				$msg_style = "success";
+				break;
+		}
+		
+		echo "<span class=\"{$msg_style}\">{$msg_text}</span>";
+		
 	} else {
 		header ('Location: index.php');
 	}
