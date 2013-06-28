@@ -9,7 +9,7 @@ include './lib/func.rand.php';
 // Perform a check, if user abandoned a process on the file permission checking and config creation
 $install_step = $_GET['act'];
 
-if (!file_exists(CUR_DIR.'/config.php') && !$install_step) {
+if (file_exists(CUR_DIR.'/config.php') && !$install_step) {
 	header('Location: install.php?act=2');
 }
 
