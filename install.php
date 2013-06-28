@@ -1,6 +1,7 @@
 <?php
 define('IN_EZRPG', true);
 define('CUR_DIR', realpath(dirname(__FILE__)));
+error_reporting(0);
 
 // Including a library to help generate random secret key
 include './lib/func.rand.php';
