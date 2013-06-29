@@ -47,7 +47,7 @@ function showMsg($msg_text, $msg_style=0)
 
 /*
   Function: redirectTo
-  Returns a redirection path as a message to AJAX request
+  Returns a redirection path as a message to AJAX request, or redirects user using header, if accessed via direct URI
   
   Parameters:
   $path - Location to redirect to. Defaults to index.php
@@ -55,7 +55,16 @@ function showMsg($msg_text, $msg_style=0)
 */
 function redirectTo($path='index.php')
 {
-	echo "Location: {$path}";
-	exit;
+	// Here we are checking, if the file with the message generated is accessed via AJAX - if directly, just return to index page so to avoid unnecesary bald page view :)
+	if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')) {
+	
+		echo "Location: {$path}";
+		exit;
+	
+	} else {
+	
+		header("Location: {$path}");
+		
+	}
 }
 ?>

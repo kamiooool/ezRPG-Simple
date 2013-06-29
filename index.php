@@ -37,6 +37,7 @@ $hooks->run_hooks('footer', $module_name);
 	if (DEBUG_MODE == 1) {
 		global $debug_log;
 		$debug_info = implode("<br />",$debug_log);
+		$debug_info = str_replace("'", "\\'",$debug_info);
 		echo "<script>$().toastmessage('showNoticeToast', '{$debug_info}');</script>";
 			
 	}
