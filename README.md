@@ -4,7 +4,6 @@ The "master" branch here currently serves as a developer one, so please be patie
 
 TODO:
 - Multilingual support + language files
-- Remove that messages in URI
 - Plugin info parse right from itself plugin file
 - Modules expansion etc.
 
