@@ -239,7 +239,7 @@ img {
 
 /* DEBUG SKIN - MISC */
 .toast-container {
-	width: 280px;
+	width: 500px;
 	z-index: 9999;
 }
 
@@ -266,6 +266,8 @@ img {
 	display: block;
 	position: relative;
 	margin: 0 0 12px 0;
+	font-size:11px;
+	font-family:Tahoma;
 }
 
 .toast-item p {

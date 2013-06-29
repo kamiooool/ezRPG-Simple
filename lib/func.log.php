@@ -54,4 +54,22 @@ function checkLog($player, &$db)
     $result = $db->fetchRow('SELECT COUNT(`id`) AS `count` FROM `<ezrpg>player_log` WHERE `player`=? AND `status`=0', array(intval($player)));
     return $result->count;
 }
+
+/*
+  Function: showDbLog
+  Outputs debug log/
+
+  Parameters:
+  $debug_log - Array of messages.
+
+  Returns:
+  JS script string, which depends on debug_modal.js, outputting all the debug info.
+
+*/
+function showDbLog($debug_log)
+{
+		$debug_info = implode("<br />",$debug_log);
+		$debug_info = str_replace("'", "\\'",$debug_info);
+		echo "<script>$().toastmessage('showNoticeToast', '{$debug_info}');</script>";
+}
 ?>
