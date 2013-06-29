@@ -62,4 +62,23 @@ function isEmail($email)
     return true;
 }
 
+/*
+  Function: isset_array
+  Checks if an array has some keys, and returns true
+  
+  Parameters:
+  none
+  
+  Returns:
+  Boolean - true or false
+*/
+function isset_array() {
+    if (func_num_args() < 2) return true;
+    $args = func_get_args();
+    $array = array_shift($args);
+    if (!is_array($array)) return false;
+    foreach ($args as $n) if (!isset($array[$n])) return false;
+    return true;
+}
+
 ?>
