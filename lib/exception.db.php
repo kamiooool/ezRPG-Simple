@@ -61,7 +61,7 @@ class DbException extends Exception
 <head>
 <title>ezRPG Error!</title>
 <style>
-#error { width: 50%; margin: auto; font: 0.8em  Verdana, Arial, Sans-serif; color: #666; padding: 10px; border: 1px solid #3182C0; }
+#error { position:absolute; margin: auto; font: 0.8em  Verdana, Arial, Sans-serif; color: #666; padding: 10px; border: 1px solid #f20; width:759px; background:#fff }
 </style>
 </head>
 <body>
