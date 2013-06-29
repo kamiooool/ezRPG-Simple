@@ -2,13 +2,10 @@
 
 <h1>Home</h1>
 
-<div class="left">
 <p>
-Welcome to ezRPG! Login now!
+Welcome to ezRPG "Simple". You are viewing default theme, which was created specially for you to understand the basics of this PHP engine. For now, you can use the login form to enter the game or admin panel, or register as a new player.
 </p>
-</div>
 
-<div class="right">
 <form data-module="Login">
 <label>Username</label>
 <input type="text" name="username" />
@@ -16,8 +13,8 @@ Welcome to ezRPG! Login now!
 <label>Password</label>
 <input type="password" name="password" />
 
+<br />
 <input name="login" type="submit" class="button" value="Login!">
 </form>
-</div>
 
 {include file="footer.tpl"}
