@@ -1,6 +1,6 @@
 <?php
 /*
- Module Name: Login
+ Module Name: Register
  Module URI: http://ezrpgproject.net/
  Description: This module handles user registration. It is included in ezRPG core by default.
  Version: 1.0
@@ -13,24 +13,14 @@ defined('IN_EZRPG') or exit;
 
 class Module_Register extends Base_Module
 {
-    /*
-      Function: start()
-      Displays the registration form by default.
-      
-      See Also:
-      - <render>
-      - <register>
-    */
     public function start()
     {
-		// If user is already logged in, we're just redirecting him to index
-        if (LOGGED_IN) {
-			
+		if (LOGGED_IN) {
+			// If user is already logged in, we're just redirecting him to index
 			redirectTo('index.php');
-			
-        } else {
-            //If the form was submitted, process it in register().
-            if (isset($_POST['register']))
+		} else {
+			//If the form was submitted, process it in register(), chacking each element of submitted keys in $_POST. That is necessary to do!
+            if (isset_array($_POST,'username','email','email2','password','password2'))
                 $this->register();
             else
                 $this->render();
@@ -40,19 +30,9 @@ class Module_Register extends Base_Module
     /*
       Function: render
       Renders register.tpl.
-	
-      Also repopulates the form with submitted data if necessary.
     */
     private function render()
     {
-        //Add form default values
-        if (!empty($_GET['username']))
-            $this->tpl->assign('GET_USERNAME', $_GET['username']);
-        if (!empty($_GET['email']))
-            $this->tpl->assign('GET_EMAIL', $_GET['email']);
-        if (!empty($_GET['email2']))
-            $this->tpl->assign('GET_EMAIL2', $_GET['email2']);
-		
         $this->tpl->display('register.tpl');
     }
 	
@@ -68,7 +48,7 @@ class Module_Register extends Base_Module
     */
     private function register()
     {
-		
+
 		// Quering in DB to check if that username already created
 		$result = $this->db->fetchRow('SELECT COUNT(`id`) AS `count` FROM `<ezrpg>players` WHERE `username`=?', array($_POST['username']));
 		
@@ -92,64 +72,46 @@ class Module_Register extends Base_Module
         //Check password
         if (empty($_POST['password']))
         {
-            $errors[] = 'You didn\'t enter a password!';
-            $error = 1;
+            showMsg('Please enter your password!', 1);
         }
         else if (!isPassword($_POST['password']))
-        { //If password is too short...
-            $errors[] = 'Your password must be longer than 3 characters!'; //Add to error message
-            $error = 1; //Set error check
+        { 
+			//If password is too short...
+            showMsg('Your password is too short!', 2);
         }
 	
         if ($_POST['password2'] != $_POST['password'])
         {
-            $errors[] = 'You didn\'t verify your password correctly!';
-            $error = 1;
+            //If passwords didn't match
+            showMsg('You didn\'t verified your password correctly!', 1);
         }
 	
         //Check email
         $result = $this->db->fetchRow('SELECT COUNT(`id`) AS `count` FROM `<ezrpg>players` WHERE `email`=?', array($_POST['email']));
+		
         if (empty($_POST['email']))
         {
-            $errors[] = 'You didn\'t enter your email!';
-            $error = 1;
+            showMsg('Please enter your correct email!', 1);
         }
         else if (!isEmail($_POST['email']))
         {
-            $errors[] = 'Your email format is wrong!'; //Add to error message
-            $error = 1; //Set error check
+            showMsg('Your email format is wrong!', 1);
         }
         else if ($result->count > 0)
         {
-            $errors[] = 'That email has already been used. Please create only one account, creating more than one account will get all your accounts deleted!';
-            $error = 1; //Set error check
+            showMsg('That email has already been used. Please create only one account, creating more than one account will get all your accounts deleted!', 2);
         }
 	
         if ($_POST['email2'] != $_POST['email'])
         {
-            $errors[] = 'You didn\'t verify your email correctly!';
-            $error = 1;
+            showMsg('You didn\'t verify your email correctly!', 1);
         }
 		
-        //Check verification code
-        if (empty($_POST['reg_verify']))
-        {
-            $errors[] = 'You didn\'t enter the verification code!';
-            $error = 1;
-        }
-        else if ($_SESSION['verify_code'] != sha1(strtoupper($_POST['reg_verify']) . SECRET_KEY))
-        {
-            $errors[] = 'You didn\'t enter the correct verification code!';
-            $error = 1;
-        }
-		
+	
         //verify_code must NOT be used again.
         session_unset();
         session_destroy();
-		
-		
-        if ($error == 0)
-        {
+
             unset($insert);
             $insert = Array();
             //Add new user to database
@@ -167,28 +129,9 @@ class Module_Register extends Base_Module
             //Use $new_player to find their new ID number.
 
             $hooks->run_hooks('register_after', $new_player);
-            
-            $msg = 'Congratulations, you have registered! Please login now to play!';
-            header('Location: index.php?msg=' . urlencode($msg));
+
+            redirectTo('index.php');
             exit;
-        }
-        else
-        {
-            $msg = 'Sorry, there were some mistakes in your registration:<br />';
-            $msg .= '<ul>';
-            foreach($errors as $errmsg)
-            {
-                $msg .= '<li>' . $errmsg . '</li>';
-            }
-            $msg .= '</ul>';
-            
-            $url = 'index.php?mod=Register&msg=' . urlencode($msg)
-                . '&username=' . urlencode($_POST['username'])
-                . '&email=' . urlencode($_POST['email'])
-                . '&email2=' . urlencode($_POST['email2']);
-            header('Location: ' . $url);
-            exit;
-        }
     }
 }
 ?>

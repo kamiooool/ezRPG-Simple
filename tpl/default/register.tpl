@@ -6,10 +6,10 @@
 Want to join the fun? Fill out the form below to register!
 </p>
 
-<form method="POST" action="index.php?mod=Register">
+<form data-module="Register">
 
 <label>Username</label>
-<input type="text" size="40" name="username"{if $GET_USERNAME != ""} value="{$GET_USERNAME}"{/if} />
+<input type="text" size="40" name="username" />
 
 <label>Password</label>
 <input type="password" size="40" name="password" />
@@ -18,14 +18,10 @@ Want to join the fun? Fill out the form below to register!
 <input type="password" size="40" name="password2" />
 
 <label>Email</label>
-<input type="text" size="40" name="email"{if $GET_EMAIL != ""} value="{$GET_EMAIL}"{/if} />
+<input type="text" size="40" name="email" />
 
 <label>Verify Email</label>
-<input type="text" size="40" name="email2"{if $GET_EMAIL2 != ""} value="{$GET_EMAIL2}"{/if} />
-
-<label>Enter The Code</label>
-<img src="./captcha.php" /><br />
-<input type="text" size="40" name="reg_verify" autocomplete="off" />
+<input type="text" size="40" name="email2" />
 
 <br />
 <input name="register" type="submit" value="Register!" class="button" />
