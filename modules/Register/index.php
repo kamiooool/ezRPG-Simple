@@ -1,11 +1,16 @@
 <?php
-//This file cannot be viewed, it must be included
+/*
+ Module Name: Login
+ Module URI: http://ezrpgproject.net/
+ Description: This module handles user registration. It is included in ezRPG core by default.
+ Version: 1.0
+ Package: SIMPLE
+ Author: Zeggy, [SC]Smash3r
+ Author URI: http://smash3r.dautkom.lv/
+ */
+
 defined('IN_EZRPG') or exit;
 
-/*
-  Class: Module_Register
-  This module handles adding new players to the database.
-*/
 class Module_Register extends Base_Module
 {
     /*
@@ -18,13 +23,12 @@ class Module_Register extends Base_Module
     */
     public function start()
     {
-        if (LOGGED_IN)
-        {
-            header("Location: index.php");
-            exit;
-        }
-        else
-        {
+		// If user is already logged in, we're just redirecting him to index
+        if (LOGGED_IN) {
+			
+			redirectTo('index.php');
+			
+        } else {
             //If the form was submitted, process it in register().
             if (isset($_POST['register']))
                 $this->register();
@@ -64,25 +68,25 @@ class Module_Register extends Base_Module
     */
     private function register()
     {
-        $error = 0;
-        $errors = Array();
 		
-        //Check username
-        $result = $this->db->fetchRow('SELECT COUNT(`id`) AS `count` FROM `<ezrpg>players` WHERE `username`=?', array($_POST['username']));
-        if (empty($_POST['username']))
-        {
-            $errors[] = 'You didn\'t enter your username!';
-            $error = 1;
-        }
-        else if (!isUsername($_POST['username']))
-        { //If username is too short...
-            $errors[] = 'Your username must be longer than 3 characters and may only contain alphanumerical characters!'; //Add to error message
-            $error = 1; //Set error check
-        }
-        else if ($result->count > 0)
-        {
-            $errors[] = 'That username has already been used. Please create only one account!';
-            $error = 1; //Set error check
+		// Quering in DB to check if that username already created
+		$result = $this->db->fetchRow('SELECT COUNT(`id`) AS `count` FROM `<ezrpg>players` WHERE `username`=?', array($_POST['username']));
+		
+		// Check username
+        if (empty($_POST['username'])) {
+		
+            showMsg('Please enter username!', 1);
+			
+        } else if (!isUsername($_POST['username'])) {
+		
+			// If username is too short... Output warning message (notice the 2 in showMsg args)
+			showMsg('Your username must be longer than 3 characters and may only contain alphanumerical characters!', 2);
+			
+        } else if ($result->count > 0) {
+			
+			// If username already exists
+			showMsg('That username has already been used. Please create only one account!', 1);
+
         }
 		
         //Check password

@@ -2,7 +2,7 @@
 /*
  Module Name: Login
  Module URI: http://ezrpgproject.net/
- Description: This module handles user authentication.
+ Description: This module handles user authentication. It is included in ezRPG core by default.
  Version: 1.0
  Package: SIMPLE
  Author: Zeggy, [SC]Smash3r
