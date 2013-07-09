@@ -1,4 +1,4 @@
-{include file="admin/header.tpl" TITLE="Members Admin"}
+{include file=../_admin/header.tpl" TITLE="Members Admin"}
 
 <h1>Delete Member</h1>
 
@@ -12,4 +12,4 @@ Are you sure you want to delete <strong>{$member->username}</strong>?
 
 </form>
 
-{include file="admin/footer.tpl"}
+{include file="../_admin/footer.tpl"}

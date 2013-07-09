@@ -1,4 +1,4 @@
-{include file="header.tpl" TITLE="Members Admin"}
+{include file="../_admin/header.tpl" TITLE="Members Admin"}
 
 <h1>Members</h1>
 
@@ -34,4 +34,4 @@
 </strong>
 </span>
 
-{include file="footer.tpl"}
+{include file="../_admin/footer.tpl"}

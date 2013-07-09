@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../tpl/default/assets/css/style.css" type="text/css" />	
+	<link rel="stylesheet" href="../tpl/_admin/assets/css/style.css" type="text/css" />	
 	<title>ezRPG Settings:: {$TITLE|default:""}</title>
 	
 	{foreach from=$INIT_JS_LIBS item=item}{$item}{/foreach}
@@ -10,18 +10,19 @@
 </head>
 
 <body>
+<div id="content">
 <div id="wrapper">
 
-<header id="header" role="banner">
-	<span id="title">ezRPG</span>
-</header>
+<div id="admin_hello">
+	<b class="pure-button pure-button-secondary">Welcome, {$player->username}!</b>
+	<a href="../index.php" class="pure-button pure-button-warning">Back to Game View »</a>
+</div>
 
-<ul id="nav">
-	<li><a href="index.php">Admin</a></li>
-	<li><a href="index.php?mod=Members">Members</a></li>
-	<li><a href="../index.php">Back</a></li>
-	<li><a href="../index.php?mod=Logout">Log Out</a></li>
-</ul>
+<div id="padder">
+
+<header id="header" role="banner">
+	<div id="title">ezRPG</div>
+</header>
 
 {include file="../_admin/sidebar_admin.tpl"}
 

@@ -1,4 +1,4 @@
-{include file="admin/header.tpl" TITLE="Members Admin"}
+{include file="../_admin/header.tpl" TITLE="Members Admin"}
 
 <h1>Edit Member</h1>
 
@@ -27,4 +27,4 @@ If the player has rank 5 or higher, the player will be able to access the admin 
 
 </form>
 
-{include file="admin/footer.tpl"}
+{include file="../_admin/footer.tpl"}
