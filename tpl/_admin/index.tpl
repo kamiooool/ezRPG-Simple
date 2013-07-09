@@ -1,4 +1,4 @@
-{include file="admin/header.tpl" TITLE="Admin"}
+{include file="../_admin/header.tpl" TITLE="Admin"}
 
 <h1>Admin</h1>
 
@@ -11,4 +11,4 @@
 If you install extra admin modules, edit <em>smarty/templates/admin/index.tpl</em> to add links above.
 </p>
 
-{include file="admin/footer.tpl"}
+{include file="../_admin/footer.tpl"}

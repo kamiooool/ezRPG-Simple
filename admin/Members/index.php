@@ -59,7 +59,7 @@ class Admin_Members extends Base_Module
         $this->tpl->assign('playercount', $total_players);
         $this->tpl->assign('members', $members);
         
-        $this->tpl->display('admin/members.tpl');
+        $this->tpl->display(ADMIN_TPL_DIR.'/members.tpl');
     }
     
     /*

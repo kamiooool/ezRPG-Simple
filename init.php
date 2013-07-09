@@ -13,6 +13,7 @@ session_start();
 define('CUR_DIR', realpath(dirname(__FILE__)));
 define('MOD_DIR', CUR_DIR . '/modules');
 define('ADMIN_DIR', CUR_DIR . '/admin');
+define('ADMIN_TPL_DIR', CUR_DIR . '/tpl/_admin');
 define('LIB_DIR', CUR_DIR . '/lib');
 define('EXT_DIR', LIB_DIR . '/ext');
 define('HOOKS_DIR', CUR_DIR . '/hooks');

@@ -1,7 +1,8 @@
 <?php
 defined('IN_EZRPG') or exit;
 
-$hooks->add_hook('player', 'check_stats', 2);
+// Since admin counts as a player too, hook will run in admin part of interface to check stats - but we don't need it to run there...
+defined('IN_ADMIN') or $hooks->add_hook('player', 'check_stats', 2);
 
 function hook_check_stats($db, &$tpl, $player, $args = 0)
 {
