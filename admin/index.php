@@ -4,12 +4,11 @@ define('IN_ADMIN', true);
 
 require_once '../init.php';
 
-// Require admin rank
-if ($player->rank < 5)
-{
-    header('Location: ../index.php');
-    exit;
-}
+// Require admin rank, or kick the user out back to index, if he is not logged in and trying to break into admin section
+if ($player == 0) header('Location: ../index.php');
+
+// Checking now for admin rank. Here we can be sure, that we are not checking an empty object
+if ($player->rank < 5) header('Location: ../index.php');
 
 $default_mod = 'Index';
 
