@@ -21,10 +21,11 @@
 <div id="padder">
 
 <header id="header" role="banner">
-	<div id="title">ezRPG</div>
+	<a href="../admin/index.php" id="title">ezRPG</a>
 </header>
+
+<div id="messages"></div>
 
 {include file="../_admin/sidebar_admin.tpl"}
 
 <div id="admin_body">
-<div id="messages"></div>

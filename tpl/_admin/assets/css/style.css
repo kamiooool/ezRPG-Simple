@@ -21,6 +21,7 @@ body,html{
 	height:100%;
 }
 
+h1 { margin:0px;padding:0px;text-transform:uppercase;letter-spacing:-1px;}
 #content {
 	min-height:100%;
 	height:100%;
@@ -60,7 +61,10 @@ body,html{
 #admin_hello a {
 	float:right;
 }
-
+#admin_body {
+float:right;
+width:675px;
+}
 #header {
 	width: 100%;
 	padding: 5px;
@@ -149,13 +153,8 @@ body,html{
 #sidebar {
 	display: block;
 	float: left;
-	width: 20%;
-	border: 1px solid #3399FF;
-	border-bottom: 5px solid #3399FF;
+	width: 260px;
 	margin: 0px;
-	margin-top: 5px;
-	padding: 3px;
-	padding-left: 8px;
 }
 
 #gamebody {
