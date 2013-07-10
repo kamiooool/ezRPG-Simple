@@ -5,6 +5,7 @@ error_reporting(0);
 
 // Including a library to help generate random secret key
 include './lib/func.rand.php';
+include './lib/func.validate.php';
 
 // Perform a check, if user abandoned a process on the file permission checking and config creation
 $install_step = $_GET['act'];
@@ -172,7 +173,7 @@ else if ($install_step == 3) {
 		
 		// This is the initial values, filled in by default
         $dbhost = 'localhost';
-        $dbname = 'ezrpg';
+        $dbname = '';
         $dbuser = '';
         $dbpass = '';
         $dbprefix = 'ezrpg_';
@@ -376,14 +377,49 @@ else if ($install_step == 4) {
         $errors = 0;
         $msg = '';
 		
-        if (empty($_POST['username']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['password'])) {
-            $errors = 1;
-            $msg .= "You forgot to fill in something!";
+// Check username
+        if (empty($_POST['username'])) {
+			$errors = 1;
+            $msg .= 'Please enter username!<br />';
+			
+        } else if (!isUsername($_POST['username'])) {
+		
+			// If username is too short...
+			$errors = 1;
+			$msg .= 'Your username must be longer than 3 characters and may only contain alphanumerical characters!<br />';
+			
         }
 		
-        if ($_POST['password'] != $_POST['password2']) {
-            $errors = 1;
-            $msg .= "Passwords don't match.";
+        //Check password
+        if (empty($_POST['password']))
+        {
+			$errors = 1;
+            $msg .= 'Please enter your password!<br />';
+        }
+        else if (!isPassword($_POST['password']))
+        { 
+			//If password is too short...
+			$errors = 1;
+			$msg .= 'Your password is too short!<br />';
+        }
+	
+        if ($_POST['password2'] != $_POST['password'])
+        {
+            //If passwords didn't match
+			$errors = 1;
+			$msg .= 'You didn\'t verified your password correctly!<br />';
+        }
+	
+        //Check email
+        if (empty($_POST['email']))
+        {
+			$errors = 1;
+            $msg .= 'Please enter your correct email!<br />';
+        }
+        else if (!isEmail($_POST['email']))
+        {
+			$errors = 1;
+			$msg .= 'Your email format is wrong!<br />';
         }
         
         if ($errors == 0) {
