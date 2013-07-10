@@ -1,15 +1,11 @@
 <?php
-//This page cannot be viewed, it must be included
+// This page cannot be viewed, it must be included
 defined('IN_EZRPG') or exit;
 
-//Start Session
+// Start Session
 session_start();
 
-//Headers
-//header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
-//header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-
-//Constants
+// Constants
 define('CUR_DIR', realpath(dirname(__FILE__)));
 define('MOD_DIR', CUR_DIR . '/modules');
 define('ADMIN_DIR', CUR_DIR . '/admin');
@@ -20,7 +16,7 @@ define('HOOKS_DIR', CUR_DIR . '/hooks');
 
 require_once CUR_DIR . '/config.php';
 
-//Show errors?
+// Show errors?
 (SHOW_ERRORS == 0)?error_reporting(0):error_reporting(E_ALL);
 
 // Clean up DEBUG log, if in debug mode
@@ -32,33 +28,34 @@ if (DEBUG_MODE == 1) {
 require_once(CUR_DIR . '/lib.php');
 
 
-//Database
-try
-{
+// Database
+try {
     $db = DbFactory::factory($config_driver, $config_server, $config_username, $config_password, $config_dbname);
-}
-catch (DbException $e)
-{
+} catch (DbException $e) {
     $e->__toString();
 }
 
-//Database password no longer needed, unset variable
+// Database password no longer needed, unset variable
 unset($config_password);
 
-//Smarty
+// Smarty
 $tpl = new Smarty();
 $tpl->template_dir = CUR_DIR . '/tpl/default/';
 $tpl->compile_dir  = CUR_DIR . '/tpl/cache/';
 $tpl->config_dir   = CUR_DIR . '/tpl/config/';
 $tpl->cache_dir    = CUR_DIR . '/tpl/cache/';
 
-//Initialize $player
+// Initialize $player
 $player = 0;
 
-//Create a hooks object
+// Assign a version info for later compatibility check between modules and stuff
+$tpl->assign('PACKAGE', PACKAGE);
+$tpl->assign('VERSION', VERSION);
+
+// Create a hooks object
 $hooks = new Hooks($db, $tpl, $player);
 
-//Include all hook files
+// Include all hook files
 $hook_files = scandir(HOOKS_DIR);
 
 foreach($hook_files as $hook_file)
