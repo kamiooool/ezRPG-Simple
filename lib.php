@@ -11,6 +11,7 @@ require_once (LIB_DIR . '/func.text.php');
 require_once (LIB_DIR . '/func.player.php');
 require_once (LIB_DIR . '/func.validate.php');
 require_once (LIB_DIR . '/func.messages.php');
+require_once (LIB_DIR . '/func.modules.php');
 
 // Classes
 require_once (LIB_DIR . '/class.dbfactory.php');
