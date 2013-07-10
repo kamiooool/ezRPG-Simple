@@ -56,6 +56,16 @@ function checkLog($player, &$db)
 }
 
 /*
+  Function: convert
+  Converts memory usage to MB
+*/
+function convert($size)
+{
+    $unit=array('b','kb','mb','gb','tb','pb');
+    return @round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
+}
+
+/*
   Function: showDbLog
   Outputs debug log/
 
@@ -70,6 +80,7 @@ function showDbLog($debug_log)
 {
 		$debug_info = implode("<br />",$debug_log);
 		$debug_info = str_replace("'", "\\'",$debug_info);
-		echo "<script>$().toastmessage('showNoticeToast', '{$debug_info}');</script>";
+		$memory_usage = convert(memory_get_usage(true));
+		echo "<script>$().toastmessage('showNoticeToast', '{$debug_info}<br /><br />Memory usage: {$memory_usage}');</script>";
 }
 ?>
