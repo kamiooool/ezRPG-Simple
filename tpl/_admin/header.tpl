@@ -14,16 +14,12 @@
 <div id="wrapper">
 
 <div id="admin_hello">
+	<a href="../admin/index.php" id="logo">ezRPG</a>
 	<b class="pure-button pure-button-secondary">Welcome, {$player->username}!</b>
-	<a href="../index.php" class="pure-button pure-button-warning">Back to Game View »</a>
+	<a href="../index.php" class="pure-button pure-button-warning" id="backtogame">Back to Game View »</a>
 </div>
 
 <div id="padder">
-
-<header id="header" role="banner">
-	<a href="../admin/index.php" id="title">ezRPG</a>
-</header>
-
 <div id="messages"></div>
 
 {include file="../_admin/sidebar_admin.tpl"}

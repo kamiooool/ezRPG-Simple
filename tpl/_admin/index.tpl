@@ -2,13 +2,7 @@
 
 <h1>Admin</h1>
 
-<h2>Admin Modules</h2>
-<ul>
-        <li><a href="index.php?mod=Members">Member Management</a></li>
-</ul>
-
-<p>
-If you install extra admin modules, edit <em>smarty/templates/admin/index.tpl</em> to add links above.
-</p>
+Here some brief info can be displayed, such as overall engine info, modules stuff an misc.<br />
+In later commits there will be generated info-blocks.
 
 {include file="../_admin/footer.tpl"}
