@@ -3,7 +3,7 @@
  Module Name: Register
  Module URI: http://ezrpgproject.net/
  Description: This module handles user registration. It is included in ezRPG core by default.
- Version: 1.0
+ Version: 1.0.1
  Package: SIMPLE
  Author: Zeggy, [SC]Smash3r
  Author URI: http://smash3r.dautkom.lv/

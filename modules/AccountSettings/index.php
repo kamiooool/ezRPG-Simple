@@ -1,4 +1,12 @@
 <?php
+/*
+ Module Name: Account Settings
+ Module URI: http://ezrpgproject.net/
+ Description: Lets the user change their password.
+ Version: 1.0
+ Author: Zeggy
+ */
+ 
 //This file cannot be viewed, it must be included
 defined('IN_EZRPG') or exit;
 

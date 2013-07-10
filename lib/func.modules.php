@@ -111,12 +111,12 @@ function get_module_data( $module_file, $markup = true, $translate = true ) {
 
 	$default_headers = array(
 		'Name' => 'Module Name',
-		'ModuleURI' => 'Module URI',
-		'Version' => 'Version',
-		'Package' => 'Package',
 		'Description' => 'Description',
 		'Author' => 'Author',
-		'AuthorURI' => 'Author URI'
+		'AuthorURI' => 'Author URI',
+		'ModuleURI' => 'Module URI',
+		'Version' => 'Version',
+		'Package' => 'Package'
 	);
 
 	$module_data = get_file_data( $module_file, $default_headers, 'module' );

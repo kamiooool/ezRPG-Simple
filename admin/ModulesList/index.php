@@ -17,22 +17,12 @@ class Admin_ModulesList extends Base_Module
 	/* Accepts parameter 0 (empty) or 1 for full modules info parsing. By default only returns dirnames of used modules.
 	**/
 	$modules_array = get_modules(1);
-
-				/*if (isset($modules_array['public'])) {
-					foreach ( (array) $plugins as $plugin ) {
-						if ( '.' == dirname($plugin) ) {
-							if( $data = get_plugin_data(WP_PLUGIN_DIR . '/' . $plugin) ) {
-								$plugin_info[ $plugin ] = $data;
-								$plugin_info[ $plugin ]['is_uninstallable'] = is_uninstallable_plugin( $plugin );
-								if ( ! $plugin_info[ $plugin ]['Network'] )
-									$have_non_network_plugins = true;
-							}
-						}
-					}
-				}*/
-
-
-        $this->tpl->display(ADMIN_TPL_DIR.'/modules_list.tpl');
+	
+	if (isset($modules_array['module'])) {
+		$this->tpl->assign('MODULES_INFO', $modules_array['module']);
+	}
+	
+	$this->tpl->display(ADMIN_TPL_DIR.'/modules_list.tpl');
     }
 }
 ?>

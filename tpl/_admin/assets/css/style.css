@@ -274,3 +274,31 @@ width:675px;
 			cursor:default;
 			cursor:default;
         }
+.pure-table .module_error {
+	color:#d20;
+	font-weight:bold;
+}
+.pure-table .module_meta_error {
+	color:#999;
+	font-size:11px;
+}
+.pure-table .module_meta_description {
+	margin-bottom:10px;
+	clear:both;
+
+}
+.pure-table .module_meta span {
+display:block;
+clear:both;
+font-size:11px;
+line-height:12px;
+}
+.pure-table .module_meta_package {
+	float:right;
+}
+.pure-table .module_meta_package b{
+	color:#2a0;
+}
+.pure-table .module_meta_version {
+font-weight:bold;
+}
