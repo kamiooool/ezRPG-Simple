@@ -151,7 +151,7 @@ img {
 #sidebar {
 	display: block;
 	float: left;
-	width: 20%;
+	width: 25%;
 	border: 1px solid #3399FF;
 	border-bottom: 5px solid #3399FF;
 	margin: 0px;
@@ -163,7 +163,7 @@ img {
 #gamebody {
 	display: block;
 	float: right;
-	width: 75%;
+	width: 70%;
 	margin: 0px;
 	padding: 3px;
 }
@@ -236,6 +236,40 @@ img {
 	margin: 2px;
 	margin-bottom: 10px;
 }
-
-.toast-container{width:500px;z-index:9999;}* html .toast-container{position:absolute;}.toast-item{height:auto;background:#333;opacity:0.9;border-radius:10px;-moz-border-radius:10px;-webkit-border-radius:10px;color:#eee;border:1px solid #999;display:block;position:relative;font-size:11px;font-family:Tahoma;margin:0 0 12px;padding:20px 6px;}.toast-item p{text-align:left;margin-left:50px;}.toast-item-close{background:url(http://cdn1.iconfinder.com/data/icons/defaulticon/icons/png/16x16/cancel.png);width:22px;height:22px;position:absolute;top:7px;right:7px;}.toast-item-image{width:32px;height:32px;position:absolute;top:50%;margin-top:-16px;left:10px;}.toast-item-image-notice{background:url(http://cdn1.iconfinder.com/data/icons/SOPHISTIQUENIGHT/mail_icons/png/32/virus_definitions.png);}.toast-item-image-success{background:url(http://cdn1.iconfinder.com/data/icons/fatcow/32/accept.png);}.toast-item-image-warning{background:url(http://cdn1.iconfinder.com/data/icons/woocons1/Sign%20Warning.png);}.toast-item-image-error{background:url(http://cdn3.iconfinder.com/data/icons/tango-icon-library/48/dialog-error-32.png);}.toast-type-warning{color:#FFF;border-color:#FCBD57;}.toast-type-error{color:#FFF;border-color:#B32B2B;}.toast-position-top-left{position:fixed;left:20px;top:20px;}.toast-position-top-center{position:fixed;top:20px;left:50%;margin-left:-140px;}.toast-position-top-right{position:fixed;top:20px;right:20px;}.toast-position-middle-left{position:fixed;left:20px;top:50%;margin-top:-40px;}.toast-position-middle-center{position:fixed;left:50%;margin-left:-140px;margin-top:-40px;top:50%;}.toast-position-middle-right{position:fixed;right:20px;margin-left:-140px;margin-top:-40px;top:50%;}.toast-type-notice,.toast-type-success{color:#FFF;}
-
+.bar {
+clear:both;
+}
+.bar_wrap {
+	float:right;
+    width: 120px;
+    padding: 0px;
+	border:1px solid #000;
+	text-align:center;
+	font-size:10px;
+	color:#fff;
+	text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+	font-weight:bold;
+	font-family:Verdana;
+	height:13px;
+}
+.bar_wrap div div {
+	position:absolute;
+	width:120px;
+	text-align:center;
+	background:transparent;
+}
+.bar_wrap  #hp {
+    background: #f20;
+    width: 0%;
+	height:13px;
+}
+.bar_wrap  #exp {
+    background: #f82;
+    width: 0%;
+	height:13px;
+}
+.bar_wrap  #nrg {
+    background: #37F;
+    width: 0%;
+	height:13px;
+}
