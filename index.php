@@ -33,9 +33,11 @@ $module->start();
 // Footer hooks
 $hooks->run_hooks('footer', $module_name);
 
-// DEBUG MODE
-	if (DEBUG_MODE == 1) {
-		global $debug_log;
-		showDbLog($debug_log);
+// DEBUG MODE - only show for admin or any user with rank > 5
+	if (DEBUG_MODE == 1 && $player != '0') {
+		if ($player->rank > 5) {
+			global $debug_log;
+			showDbLog($debug_log);
+		}
 	}
 ?>

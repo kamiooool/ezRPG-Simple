@@ -17,8 +17,13 @@ function hook_init_js_libs(&$db, &$tpl, &$player, $args = 0) {
 						'<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>',
 						'<script src="'.$path.'lib/js/ajax.js"></script>',
 						);
-	// For DEBUG_MODE plug in another one JS for nifty modal window to handle messages
-	if (DEBUG_MODE == 1) $libs_array[] = '<script src="'.$path.'lib/js/debug_modal.js"></script>';
+						
+	// For DEBUG_MODE plug in another one JS for nifty modal window to handle messages. Also plug it in only if the user has rank > 5 (admin) - we don't need user to watch the debug window
+	if (DEBUG_MODE == 1 && $player != '0') {
+		if ($player->rank > 5) {
+			$libs_array[] = '<script src="'.$path.'lib/js/debug_modal.js"></script>';
+		}
+	}
 	
     $tpl->assign('INIT_JS_LIBS', $libs_array);
     
