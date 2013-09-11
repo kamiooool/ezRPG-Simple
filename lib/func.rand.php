@@ -28,7 +28,7 @@ function createKey($length, $option=0) {
     }
     else
     {
-        $chars = "abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|:><,./?`~";
+        $chars = "abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-";
     }
 	
     //srand((double)microtime()*1000000);

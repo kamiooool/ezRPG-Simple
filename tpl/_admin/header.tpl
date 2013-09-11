@@ -16,7 +16,7 @@
 <div id="admin_hello" class="shaded_bg">
 	<a href="../admin/index.php" id="logo">ezRPG</a>
 	<b class="pure-button pure-button-secondary">Welcome, {$player->username}!</b>
-	<a href="../index.php" class="pure-button pure-button-warning" id="backtogame">Back to Game View »</a>
+	<a href="../index.php" class="pure-button pure-button-warning" id="backtogame">Back to Game View &raquo;</a>
 </div>
 
 <div id="padder">
