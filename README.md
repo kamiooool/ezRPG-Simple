@@ -1,13 +1,11 @@
 NOTICE!
 =====
-The "master" branch here currently serves as a developer one, so please be patient and wait till the RC will be released. You MAY download and use this version at any time, however I am not guarantee it to be working :)
+The "master" branch here currently serves as a developer one, so please be patient and wait till the RC will be released. You MAY download and use this version at any time, however I am not guarantee it to be working :) As of September 2013, master branch counts as a fully and stable working RC.
 
 TODO:
 - Multilingual support + language files
-- Modules expansion etc.
-- Make debug mode available only for admin user
 
-ezRPG 1.0 Simple
+ezRPG 1.0.1 Simple
 =====
 
 A modular game engine written in PHP, originated by Zeggy.
