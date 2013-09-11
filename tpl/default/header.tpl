@@ -22,8 +22,6 @@
 <ul id="nav">
 	{if $LOGGED_IN == 'TRUE'}
 		<li><a href="index.php">Home</a></li>
-		<li><a href="index.php?mod=EventLog">Log</a></li>
-		<li><a href="index.php?mod=City">City</a></li>
 		<li><a href="index.php?mod=Members">Members</a></li>
 		<li><a href="index.php?mod=AccountSettings">Account</a></li>
 	{if $player->rank >= 5}
@@ -35,7 +33,7 @@
 		<li><a href="index.php?mod=Register">Register</a></li>
 	{/if}
 </ul>
-
+<br /><br />
 
 {include file="sidebar_left.tpl"}
 

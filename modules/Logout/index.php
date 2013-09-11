@@ -1,11 +1,15 @@
 <?php
-//This file cannot be viewed, it must be included
+/*
+ Module Name: Logout
+ Module URI: http://ezrpgproject.net/
+ Description: Clears the session data to logout the user. Included in ezRPG core by default.
+ Version: 1.0
+ Package: SIMPLE
+ Author: Zeggy
+ */
+ 
 defined('IN_EZRPG') or exit;
 
-/*
-  Class: Module_Logout
-  This module clears the session data to logout the user.
-*/
 class Module_Logout extends Base_Module
 {
     /*
@@ -22,8 +26,6 @@ class Module_Logout extends Base_Module
         global $hooks;
         $hooks->run_hooks('logout');
 		
-        $msg = 'You have been logged out!';
-        header('Location: index.php?msg=' . urlencode($msg));
         exit;
     }
 }

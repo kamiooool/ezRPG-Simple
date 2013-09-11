@@ -2,18 +2,15 @@
 /*
  Module Name: Account Settings
  Module URI: http://ezrpgproject.net/
- Description: Lets the user change their password.
- Version: 1.0
- Author: Zeggy
+ Description: Lets the user change their password. Included in ezRPG core by default.
+ Version: 1.0.1
+ Package: SIMPLE
+ Author: Zeggy, [SC]Smash3r
+ Author URI: http://smash3r.dautkom.lv/
  */
  
-//This file cannot be viewed, it must be included
 defined('IN_EZRPG') or exit;
 
-/*
-  Class: Module_AccountSettings
-  Lets the user change their password.
-*/
 class Module_AccountSettings extends Base_Module
 {
     /*
@@ -22,10 +19,12 @@ class Module_AccountSettings extends Base_Module
     */
     public function start()
     {
-        //Require login
-        requireLogin();
+		if (!LOGGED_IN)
+		{
+			redirectTo('index.php');
+		} 
         
-        if (isset($_POST['change_password']))
+        if (!empty($_POST))
         {
             $this->changePassword();
         }
@@ -37,35 +36,32 @@ class Module_AccountSettings extends Base_Module
 
     private function changePassword()
     {
-        $msg = '';
         if (empty($_POST['current_password']) || empty($_POST['new_password']) || empty($_POST['new_password2']))
         {
-            $msg = 'You forgot to fill in something!';
+            showMsg('You forgot to fill in something', 1);
         }
         else
         {
             $check = sha1($this->player->secret_key . $_POST['current_password'] . SECRET_KEY);
             if ($check != $this->player->password)
             {
-                $msg = 'The password you entered does not match this account\'s password.';
+				showMsg('The password you entered does not match this account\'s password.', 1);
             }
             else if (!isPassword($_POST['new_password']))
             {
-                $msg = 'Your password must be longer than 3 characters!';
+				showMsg('Your password must be longer than 3 characters!', 2);
             }
             else if ($_POST['new_password'] != $_POST['new_password2'])
             {
-                $msg = 'You didn\'t confirm your new password correctly!';
+				showMsg('You didn\'t confirm your new password correctly!', 1);
             }
             else
             {
                 $new_password = sha1($this->player->secret_key . $_POST['new_password2'] . SECRET_KEY);
                 $this->db->execute('UPDATE `<ezrpg>players` SET `password`=? WHERE `id`=?', array($new_password, $this->player->id));
-                $msg = 'You have changed your password.';
+				showMsg('You have changed your password.', 3);
             }
         }
-        
-        header('Location: index.php?mod=AccountSettings&msg=' . urlencode($msg));
     }
 }
 ?>

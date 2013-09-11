@@ -16,11 +16,10 @@ class Module_Login extends Base_Module
     /*
       Function: start
       Checks player details to login the player.
-	
-      If successful, a new session is generated and the user is redirected to the game.
-	
+	  If successful, a new session is generated and the user is redirected to the game.
       On failure, session data is cleared and message error thrown.
     */
+	
     public function start()
     {
 		

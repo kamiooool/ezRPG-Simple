@@ -1,11 +1,16 @@
 <?php
-//This file cannot be viewed, it must be included
+/*
+ Module Name: StatPoints
+ Module URI: http://ezrpgproject.net/
+ Description: This module handles distribution of stat points. It is included in ezRPG core by default.
+ Version: 1.0.1
+ Package: SIMPLE
+ Author: Zeggy, [SC]Smash3r
+ Author URI: http://smash3r.dautkom.lv/
+ */
+
 defined('IN_EZRPG') or exit;
 
-/*
-  Class: Module_StatPoints
-  Handles distribution of stat points.
-*/
 class Module_StatPoints extends Base_Module
 {
     /*
@@ -14,24 +19,40 @@ class Module_StatPoints extends Base_Module
     */
     public function start()
     {
-        //Require login
-        requireLogin();
-		
-        //If the form was submitted, process it in register().
-        if (isset($_POST['stat']) && $this->player->stat_points > 0)
-        {
-            $this->spend();
-        }
-        else if ($this->player->stat_points > 0) //Make sure they have stat points
-        {
-            $this->tpl->display('statpoints.tpl');
-        }
-        else //No more stat points, redirect to player home page
-        {
-            $msg = 'You don\'t have any stat points left!';
-            header('Location: index.php?msg=' . urlencode($msg));
-        }
+		if (!LOGGED_IN)
+		{
+			// If user is not logged in, and trying to get into StatPoints module - we're just redirecting him to index
+			redirectTo('index.php');
+		} 
+
+		// Checking for statpoints, and showing an error, if there is no statpoints left to spend
+		if (isset($_POST['form_id']))
+		{
+			if ($this->player->stat_points > 0) 
+			{
+				$this->spend();
+			}
+			else
+			{
+				showMsg('You have no points left to spend!',2);
+			}
+		}
+		else
+		{
+			$this->render();
+		}
+
     }
+	
+    /*
+      Function: render
+      Renders statpoints.tpl.
+    */
+    private function render()
+    {
+		$this->tpl->display('statpoints.tpl');
+    }
+	
     
     /*
       Function: spend
@@ -41,18 +62,18 @@ class Module_StatPoints extends Base_Module
     */
     private function spend()
     {
-        $msg = '';
-        switch($_POST['stat'])
+        switch($_POST['form_id'])
         {
-          case 'Strength':
+          case 'stat_str':
               //Add to weight limit
               $query = $this->db->execute('UPDATE <ezrpg>players SET
 				stat_points=stat_points-1,
 				strength=strength+1
 				WHERE id=?', array($this->player->id));
-              $msg = 'You have increased your strength!';
+              
+			  showMsg('You have increased your strength!',3);
               break;
-          case 'Vitality':
+          case 'stat_vit':
               //Add to hp and max_hp
               $query = $this->db->execute('UPDATE <ezrpg>players SET
 				stat_points=stat_points-1,
@@ -61,34 +82,28 @@ class Module_StatPoints extends Base_Module
 				max_hp=max_hp+5
 				WHERE id=?', array($this->player->id));
               
-              $msg = 'You have increased your vitality!';
+              showMsg('You have increased your vitality!',3);
               break;
-          case 'Agility':
+          case 'stat_agi':
               $query = $this->db->execute('UPDATE <ezrpg>players SET
 				stat_points=stat_points-1,
 				agility=agility+1
 				WHERE id=?', array($this->player->id));
               
-              $msg = 'You have increased your agility!';
+              showMsg('You have increased your agility!',3);
               break;
-          case 'Dexterity':
+          case 'stat_dex':
               $query = $this->db->execute('UPDATE <ezrpg>players SET
 				stat_points=stat_points-1,
 				dexterity=dexterity+1
 				WHERE id=?', array($this->player->id));
               
-              $msg = 'You have increased your dexterity!';
+              showMsg('You have increased your dexterity!',3);
               break;
           default:
               break;
         }
-	
-        //Player has just used up their last stat point
-        if ($this->player->stat_points <= 1)
-            header('Location: index.php?msg=' . urlencode($msg));
-        else
-            header('Location: index.php?mod=StatPoints&msg=' . urlencode($msg));
-	
+
         exit;
     }
 }

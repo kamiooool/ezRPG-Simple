@@ -18,13 +18,13 @@ class Module_Register extends Base_Module
 		if (LOGGED_IN) {
 			// If user is already logged in, we're just redirecting him to index
 			redirectTo('index.php');
-		} else {
-			//If the form was submitted, process it in register(), chacking each element of submitted keys in $_POST. That is necessary to do!
-            if (isset_array($_POST,'username','email','email2','password','password2'))
-                $this->register();
-            else
-                $this->render();
-        }
+		}
+		
+		//If the form was submitted, process it in register()
+        if (!empty($_POST))
+            $this->register();
+        else
+            $this->render();
     }
 	
     /*
@@ -43,8 +43,6 @@ class Module_Register extends Base_Module
       Checks if all the data is correct, and adds the player to the database.
 	
       Otherwise, add an error message.
-	
-      At the end, use a *redirect* in order to be able to display a message through $_GET['msg'].
     */
     private function register()
     {
@@ -108,13 +106,13 @@ class Module_Register extends Base_Module
         }
 		
 	
-        //verify_code must NOT be used again.
+        // verify_code must NOT be used again.
         session_unset();
         session_destroy();
 
             unset($insert);
             $insert = Array();
-            //Add new user to database
+            // Add new user to database
             $insert['username'] = $_POST['username'];
             $insert['email'] = $_POST['email'];
             $insert['secret_key'] = createKey(16);
@@ -122,15 +120,17 @@ class Module_Register extends Base_Module
             $insert['registered'] = time();
 
             global $hooks;
-            //Run register hook
+            // Run register hook
             $insert = $hooks->run_hooks('register', $insert);
             
             $new_player = $this->db->insert('<ezrpg>players', $insert);
-            //Use $new_player to find their new ID number.
+            // Use $new_player to find their new ID number.
 
             $hooks->run_hooks('register_after', $new_player);
-
+			
+			// Don't forget to redirect user back to index page
             redirectTo('index.php');
+			
             exit;
     }
 }

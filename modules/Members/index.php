@@ -1,11 +1,15 @@
 <?php
-//This file cannot be viewed, it must be included
+/*
+ Module Name: Members
+ Module URI: http://ezrpgproject.net/
+ Description: Shows basic list of members. Included in ezRPG core by default.
+ Version: 1.0
+ Package: SIMPLE
+ Author: Zeggy
+ */
+ 
 defined('IN_EZRPG') or exit;
 
-/*
-  Class: Module_Members
-  Shows a list of members.
-*/
 class Module_Members extends Base_Module
 {
     /*
@@ -14,8 +18,10 @@ class Module_Members extends Base_Module
     */
     public function start()
     {
-        //Require login
-        requireLogin();
+		if (!LOGGED_IN)
+		{
+			redirectTo('index.php');
+		}
         
         if (isset($_GET['page']))
             $page = (intval($_GET['page']) > 0) ? intval($_GET['page']) : 0;

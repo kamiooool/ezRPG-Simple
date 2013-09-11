@@ -14,7 +14,11 @@ define('LIB_DIR', CUR_DIR . '/lib');
 define('EXT_DIR', LIB_DIR . '/ext');
 define('HOOKS_DIR', CUR_DIR . '/hooks');
 
-require_once CUR_DIR . '/config.php';
+if (file_exists(CUR_DIR.'/config.php')) {
+	require_once CUR_DIR . '/config.php';
+} else {
+	die('Configuration file not found.');
+}
 
 // Show errors?
 (SHOW_ERRORS == 0)?error_reporting(0):error_reporting(E_ALL);

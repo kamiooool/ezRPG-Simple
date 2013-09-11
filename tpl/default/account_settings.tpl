@@ -6,7 +6,7 @@
 Here you can change your password.
 </p>
 
-<form method="post" action="index.php?mod=AccountSettings">
+<form data-module="AccountSettings">
 
 <label>Current Password</label>
 <input type="password" size="40" name="current_password" autocomplete="off" />
