@@ -26,6 +26,8 @@ class Module_Logout extends Base_Module
         global $hooks;
         $hooks->run_hooks('logout');
 		
+		redirectTo('index.php');
+		
         exit;
     }
 }
