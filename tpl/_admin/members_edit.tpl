@@ -2,25 +2,28 @@
 
 <h1>Edit Member</h1>
 
-<form method="post" action="index.php?mod=Members&act=edit&id={$member->id}">
+<form data-module="Members">
 
-<label>Username</label>
-<input type="text" disabled="disabled" value="{$member->username}" />
+<p><label>Login</label><br />
+<input type="text" disabled="disabled" value="{$member->username}" /></p>
 
-<label>Email</label>
-<input type="text" name="email" value="{$member->email}" />
+<p><label>Email</label><br />
+<input type="text" name="email" value="{$member->email}" /></p>
 
-<label>Rank</label>
-<input type="text" name="rank" value="{$member->rank}" />
+<p><label>Rank</label><br />
+<input type="text" name="rank" value="{$member->rank}" /></p>
+
+<p><label>Money</label><br />
+<input type="text" name="money" value="{$member->money}" /></p>
+
+<p><label>Statpoints to spend</label><br />
+<input type="text" name="stat_points" value="{$member->stat_points}" /></p>
+
+<input type="hidden" name="id" value="{$member->id}" />
+<input type="hidden" name="act" value="edit" />
 <p>
 If the player has rank 5 or higher, the player will be able to access the admin panel.
 </p>
-
-<label>Money</label>
-<input type="text" name="money" value="{$member->money}" />
-
-<label>Level</label>
-<input type="text" name="level" value="{$member->level}" />
 
 <br />
 <input class="button" type="submit" value="Edit" name="edit" />

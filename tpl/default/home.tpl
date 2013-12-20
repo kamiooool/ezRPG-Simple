@@ -10,7 +10,7 @@
 <strong>Kills/Deaths</strong>: {$player->kills}/{$player->deaths}<br />
 <br />
 {if $player->stat_points > 0}
-You have stat points left over!<br />
+You have {$player->stat_points} stat points left over!<br />
 <a href="index.php?mod=StatPoints"><strong>Spend them now!</strong></a>
 {else}
 You have no extra stat points to spend.

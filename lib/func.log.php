@@ -78,9 +78,17 @@ function convert($size)
 */
 function showDbLog($debug_log)
 {
+		$db_queries = $debug_log['QUERY_COUNT'];
+		unset($debug_log['QUERY_COUNT']);
+		
+		$page_load_time = $debug_log['PAGE_LOAD_TIME'];
+		unset($debug_log['PAGE_LOAD_TIME']);
+		
 		$debug_info = implode("<br />",$debug_log);
 		$debug_info = str_replace("'", "\\'",$debug_info);
+		
 		$memory_usage = convert(memory_get_usage(true));
-		echo "<script>$().toastmessage('showNoticeToast', '{$debug_info}<br /><br />Memory usage: {$memory_usage}');</script>";
+		
+		echo "<script>$().toastmessage('showNoticeToast', '{$debug_info}<br /><br />Memory usage: {$memory_usage}<br />DB Queries: {$db_queries}<br />Page Load Time: {$page_load_time} sec.');</script>";
 }
 ?>

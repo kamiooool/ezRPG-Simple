@@ -16,7 +16,7 @@ if (isset($_GET['act']) && $_GET['act'] == 'deleteinstaller' && file_exists(CUR_
 }
 
 // Main skeleton
-
+$start = microtime(true);
 require_once CUR_DIR.'/init.php';
 
 $default_mod = 'Index';
@@ -32,11 +32,13 @@ $module->start();
 
 // Footer hooks
 $hooks->run_hooks('footer', $module_name);
+$end = microtime(true);
 
 // DEBUG MODE - only show for admin or any user with rank > 5
 	if (DEBUG_MODE == 1 && $player != '0') {
 		if ($player->rank > 5) {
 			global $debug_log;
+			$debug_log['PAGE_LOAD_TIME'] = number_format(($end - $start), 3);
 			showDbLog($debug_log);
 		}
 	}

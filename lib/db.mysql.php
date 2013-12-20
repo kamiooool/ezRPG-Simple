@@ -183,11 +183,6 @@ class Db_mysql
             
             $this->query = $query;
             
-            if (DEBUG_MODE === 1) {
-				global $debug_log;
-                $debug_log[] = "DB query: {$query}";
-			}
-            
             //Execute query
             $result = mysql_query($query, $this->db);
             if ($result === false)
@@ -212,6 +207,12 @@ class Db_mysql
 	
         //Update query count
         ++$this->query_count;
+		
+        if (DEBUG_MODE == 1) {
+			global $debug_log;
+			$debug_log[] = "DB query: {$query}";
+			$debug_log['QUERY_COUNT'] = $this->query_count;
+		}
 		
         return $result;
     }

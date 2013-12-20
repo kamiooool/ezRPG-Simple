@@ -13,6 +13,21 @@ class Admin_Members extends Base_Module
     */
     public function start()
     {
+		// We need to go deeper
+        if (isset($_POST['act']))
+        {
+            if ($_POST['act'] == 'edit')
+            {
+                $this->editMember();
+				exit;
+            }
+            else if ($_POST['act'] == 'delete')
+            {
+                $this->deleteMember();
+				exit;
+            }
+        }
+		
         if (isset($_GET['act']))
         {
             if ($_GET['act'] == 'edit')
@@ -28,6 +43,7 @@ class Admin_Members extends Base_Module
         {
             $this->listMembers();
         }
+		
     }
     
     /*
@@ -68,43 +84,52 @@ class Admin_Members extends Base_Module
     */
     private function editMember()
     {
-        if (!isset($_GET['id']))
-        {
-            header('Location: index.php?mod=Members');
-            exit;
-        }
-        
-        $member = $this->db->fetchRow('SELECT `id`, `username`, `email`, `rank`, `money`, `level` FROM `<ezrpg>players` WHERE `id`=?', array( intval($_GET['id']) ));
-        
+		if (!isset($_POST['act'])) {
+			if (!isset($_GET['id']))
+			{
+				showMsg('Player with such ID is not found!', 1);
+			}
+			
+			$member = $this->db->fetchRow('SELECT `id`, `username`, `email`, `rank`, `money`, `stat_points` FROM `<ezrpg>players` WHERE `id`=?', array( intval($_GET['id']) ));
+			
+			//No form was submitted, so just display the edit form
+			if (!isset($_POST['edit']))
+			{
+				$this->tpl->assign('member', $member);
+				$this->tpl->display(ADMIN_TPL_DIR.'/members_edit.tpl');
+				exit;
+			}
+		
+		} else {
+			
+			$member = $this->db->fetchRow('SELECT `id`, `username`, `email`, `rank`, `money`, `stat_points` FROM `<ezrpg>players` WHERE `id`=?', array( intval($_POST['id']) ));
+			
+		}
+
         //No rows found
         if ($member == false)
         {
-            header('Location: index.php?mod=Members');
+            redirectTo('index.php?mod=Members');
             exit;
         }
         
-        //No form was submitted, so just display the edit form
-        if (!isset($_POST['edit']))
-        {
-            $this->tpl->assign('member', $member);
-            $this->tpl->display(ADMIN_TPL_DIR.'/members_edit.tpl');
-            exit;
-        }
         
-        $msg = '';
-        $errors = 0;
         //Form was submitted! \o/
         if (empty($_POST['email']))
         {
-            $errors = 1;
-            $msg .= 'You forgot to enter an email address.<br />';
+            showMsg('Please enter e-mail!', 1);
         }
-        
+		
+        //Money
+        $_POST['money'] = (!empty($_POST['money']))?intval($_POST['money']):0;
+		
+        //Statpoints
+        $_POST['statpoints'] = (!empty($_POST['money']))?intval($_POST['stat_points']):0;
+
         $_POST['rank'] = (!empty($_POST['rank']))?intval($_POST['rank']):$member->rank;
         if (!isset($_POST['rank']))
         {
-            $errors = 1;
-            $msg .= 'You didn\'t enter a rank for this player.<br />';
+            showMsg('Please enter user rank!', 1);
         }
         
         //If the rank of the player you're editing is higher or equal to your own rank, then you are not allowed to edit their rank
@@ -118,46 +143,14 @@ class Admin_Members extends Base_Module
         }
         else if ($_POST['rank'] > $this->player->rank)
         {
-            $errors = 1;
-            $msg .= 'You can\'t set a member\'s rank to higher than your own!<br />';
+            showMsg('You can\'t set player\'s rank higher than yours!', 1);
         }
         
-        $_POST['money'] = intval($_POST['money']);
-        if ($_POST['money'] < 0)
-        {
-            $errors = 1;
-            $msg .= 'The player must have a positive amount of money!<br />';
-        }
-        
-        $_POST['level'] = intval($_POST['level']);
-        if ($_POST['level'] < 0)
-        {
-            $errors = 1;
-            $msg .= 'The player must have a level higher than 0!<br />';
-        }
-        
-        //The form wasn't filled out correctly
-        if ($errors == 1)
-        {
-            $member->email = $_POST['email'];
-            $member->rank = $_POST['rank'];
-            $member->money = $_POST['money'];
-            $member->level = $_POST['level'];
-            
-            $this->tpl->assign('member', $member);
-            $this->tpl->assign('GET_MSG', $msg);
-            $this->tpl->display(ADMIN_TPL_DIR.'/members_edit.tpl');
-            exit;
-        }
-        else
-        {
             //No errors, update player info
-            $query = $this->db->execute('UPDATE `<ezrpg>players` SET `email`=?, `rank`=?, `money`=?, `level`=? WHERE `id`=?', array($_POST['email'], $_POST['rank'], $_POST['money'], $_POST['level'], $member->id));
+            $query = $this->db->execute('UPDATE `<ezrpg>players` SET `email`=?, `rank`=?, `money`=?, `stat_points`=? WHERE `id`=?', array($_POST['email'], $_POST['rank'],$_POST['money'], $_POST['stat_points'], $member->id));
             
-            $msg = 'You have updated the player\'s info.';
-            header('Location: index.php?mod=Members&msg=' . urlencode($msg));
-            exit;
-        }
+            showMsg('Info succesfully updated!', 3);
+
     }
     
     /*
@@ -166,34 +159,39 @@ class Admin_Members extends Base_Module
     */
     private function deleteMember()
     {
-        $member = $this->db->fetchRow('SELECT `id`, `username` FROM `<ezrpg>players` WHERE `id`=?', array($_GET['id']));
+		if (!isset($_POST['act']))
+		{
+			$member = $this->db->fetchRow('SELECT `id`, `username` FROM `<ezrpg>players` WHERE `id`=?', array($_GET['id']));
+		
+			if (!isset($_POST['confirm']))
+			{
+				$this->tpl->assign('member', $member);
+				$this->tpl->display(ADMIN_TPL_DIR.'/members_delete.tpl');
+				exit;
+			}
+
+		}
+		else
+		{
+			$member = $this->db->fetchRow('SELECT `id`, `username` FROM `<ezrpg>players` WHERE `id`=?', array($_POST['id']));
+			
+		}
         
         if ($member == false)
         {
-            header('Location: index.php?mod=Members');
+            redirectTo('index.php?mod=Members');
             exit;
         }
         
         if ($member->id == $this->player->id)
         {
-            //Cannot delete self
-            $msg = 'You cannot delete yourself!';
-            header('Location: index.php?mod=Members&msg=' . urlencode($msg));
-            exit;
+            // Cannot delete self
+            showMsg('You can\'t delete your account when logged in!', 1);
         }
         
-        if (!isset($_POST['confirm']))
-        {
-            $this->tpl->assign('member', $member);
-            $this->tpl->display(ADMIN_TPL_DIR.'/members_delete.tpl');
-            exit;
-        }
-        else
-        {
             $query = $this->db->execute('DELETE FROM `<ezrpg>players` WHERE `id`=?', array($member->id));
-            $msg = 'You have deleted <strong>' . $member->username . '</strong>.';
-            header('Location: index.php?mod=Members&msg=' . urlencode($msg));
+            redirectTo('index.php?mod=Members');
             exit;
-        }
+
     }
 }

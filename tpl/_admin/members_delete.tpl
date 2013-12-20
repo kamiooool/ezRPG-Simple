@@ -1,13 +1,14 @@
-{include file=../_admin/header.tpl" TITLE="Members Admin"}
+{include file="../_admin/header.tpl" TITLE="Members Delete"}
 
-<h1>Delete Member</h1>
+<h1>Player delete: {$member->username}</h1>
 
 <p>
-Are you sure you want to delete <strong>{$member->username}</strong>?
+You sure you want to delete <strong>{$member->username}</strong>?
 </p>
 
-<form method="post" action="index.php?mod=Members&act=delete&id={$member->id}">
-
+<form data-module="Members">
+<input type="hidden" name="id" value="{$member->id}" />
+<input type="hidden" name="act" value="delete" />
 <input type="submit" name="confirm" value="Delete" />
 
 </form>
