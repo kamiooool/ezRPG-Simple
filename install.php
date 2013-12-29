@@ -319,7 +319,7 @@ define('SECRET_KEY', '{$secret_key}');
 */
 
 define('DB_PREFIX', '{$dbprefix}'); // Prefix to the table names
-define('VERSION', '1.0'); // Version of ezRPG
+define('VERSION', '1.0.2'); // Version of ezRPG
 define('PACKAGE', 'SIMPLE'); // Name of the package, since it is a custom build over legacy 1.0 version. This constant is needed for some modules compatibility check.
 define('SHOW_ERRORS', 0);
 define('DEBUG_MODE', 0);

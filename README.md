@@ -4,9 +4,6 @@ The "master" branch here currently serves as a developer one, so please be patie
 
 29 Dec, 2013: Multilingual smarty support added. Now your engine can be fully translated into any language, using only one file (same goes for plugins, simply add to global.lng all the needed strings).
 
-TODO:
-- Compilation of language files to single global.lng file from plugins
-
 ezRPG 1.0.2 Simple
 =====
 
