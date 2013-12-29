@@ -1,43 +1,39 @@
-{include file="header.tpl" TITLE="Stat Points"}
+{include file="header.tpl" TITLE="##EZ_GLOBAL_STATPOINTS##"}
 
-<h1>Stat Points</h1>
+<h1>##EZ_GLOBAL_STATPOINTS##</h1>
 
-<p>
-Here you can use your stat points to increase your stats! You have <strong>{$player->stat_points}</strong> points to use!
-<br /><br />
-You receive stat points when you first sign up to the game, and also each time when you level up!
-</p>
+<p>##EZ_GLOBAL_STATPOINTS_MSG##</p>
 
 <form data-module="StatPoints" id="stat_str">
-<input type="submit" class="button" value="Strength" />
+<input type="submit" class="button" value="##EZ_GLOBAL_STRENGTH##" />
 </form>
 
 <p>
-<strong>Strength</strong> - This increases the damage you do in battle, and increases your weight limit so you can carry more items.
+<strong>##EZ_GLOBAL_STRENGTH##</strong> - ##EZ_GLOBAL_STRENGTH_DESCRIPTION##
 </p>
 
 <form data-module="StatPoints" id="stat_vit">
-<input type="submit" class="button" value="Vitality" />
+<input type="submit" class="button" value="##EZ_GLOBAL_VITALITY##" />
 </form>
 
 <p>
-<strong>Vitality</strong> - This increases the amount of health you have and decreases the amount of damage you receive in battle.
+<strong>##EZ_GLOBAL_VITALITY##</strong> - ##EZ_GLOBAL_VITALITY_DESCRIPTION##
 </p>
 
 <form data-module="StatPoints" id="stat_agi">
-<input type="submit" class="button" value="Agility" />
+<input type="submit" class="button" value="##EZ_GLOBAL_AGILITY##" />
 </form>
 
 <p>
-<strong>Agility</strong> - This increases your chance to completely dodge and attack and take no damage in battle!
+<strong>##EZ_GLOBAL_AGILITY##</strong> - ##EZ_GLOBAL_AGILITY_DESCRIPTION##
 </p>
 
 <form data-module="StatPoints" id="stat_dex">
-<input type="submit" class="button" value="Dexterity" />
+<input type="submit" class="button" value="##EZ_GLOBAL_DEXTERITY##" />
 </form>
 
 <p>
-<strong>Dexterity</strong> - This helps you aim better so you are less likely to miss your opponent.
+<strong>##EZ_GLOBAL_DEXTERITY##</strong> - ##EZ_GLOBAL_DEXTERITY_DESCRIPTION##
 </p>
 
 {include file="footer.tpl"}

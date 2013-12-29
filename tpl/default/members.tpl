@@ -1,9 +1,9 @@
-{include file="header.tpl" TITLE="Members"}
+{include file="header.tpl" TITLE="##EZ_GLOBAL_MEMBERS##"}
 
 <table width="90%">
   <tr>
-    <th style="text-align: left;">Username</th>
-    <th style="text-align: left;">Level</th>
+    <th style="text-align: left;">##EZ_GLOBAL_USERNAME##</th>
+    <th style="text-align: left;">##EZ_GLOBAL_LEVEL##</th>
   </tr>
 
 {foreach from=$members item=member}
@@ -18,7 +18,7 @@
 
 <span style="display: block; width: 90%; text-align: center;">
 <strong>
-<a href="index.php?mod=Members&page={$prevpage}">Previous Page</a> | <a href="index.php?mod=Members&page={$nextpage}">Next Page</a>
+<a href="index.php?mod=Members&page={$prevpage}">##EZ_GLOBAL_PREVPAGE##</a> | <a href="index.php?mod=Members&page={$nextpage}">##EZ_GLOBAL_NEXTPAGE##<</a>
 </strong>
 </span>
 

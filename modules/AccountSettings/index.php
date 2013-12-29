@@ -38,28 +38,33 @@ class Module_AccountSettings extends Base_Module
     {
         if (empty($_POST['current_password']) || empty($_POST['new_password']) || empty($_POST['new_password2']))
         {
-            showMsg('You forgot to fill in something', 1);
+			$msg = _e('##EZ_ACCOUNTSETTINGS_ERROR_1##');
+            showMsg($msg, 1);
         }
         else
         {
             $check = sha1($this->player->secret_key . $_POST['current_password'] . SECRET_KEY);
             if ($check != $this->player->password)
             {
-				showMsg('The password you entered does not match this account\'s password.', 1);
+				$msg = _e('##EZ_ACCOUNTSETTINGS_ERROR_2##');
+				showMsg($msg, 1);
             }
             else if (!isPassword($_POST['new_password']))
             {
-				showMsg('Your password must be longer than 3 characters!', 2);
+				$msg = _e('##EZ_ACCOUNTSETTINGS_ERROR_3##');
+				showMsg($msg, 2);
             }
             else if ($_POST['new_password'] != $_POST['new_password2'])
             {
-				showMsg('You didn\'t confirm your new password correctly!', 1);
+				$msg = _e('##EZ_ACCOUNTSETTINGS_ERROR_4##');
+				showMsg($msg, 1);
             }
             else
             {
                 $new_password = sha1($this->player->secret_key . $_POST['new_password2'] . SECRET_KEY);
                 $this->db->execute('UPDATE `<ezrpg>players` SET `password`=? WHERE `id`=?', array($new_password, $this->player->id));
-				showMsg('You have changed your password.', 3);
+				$msg = _e('##EZ_ACCOUNTSETTINGS_SUCCESS_MSG##');
+				showMsg($msg, 3);
             }
         }
     }

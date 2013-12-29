@@ -1,30 +1,28 @@
-{include file="header.tpl" TITLE="Register"}
+{include file="header.tpl" TITLE="##EZ_GLOBAL_REGISTER##"}
 
-<h1>Register</h1>
+<h1>##EZ_GLOBAL_REGISTER##</h1>
 
-<p>
-Want to join the fun? Fill out the form below to register!
-</p>
+<p>##EZ_GLOBAL_REGISTER_MSG##</p>
 
 <form data-module="Register">
 
-<label>Username</label>
+<label>##EZ_GLOBAL_USERNAME##</label>
 <input type="text" size="40" name="username" />
 
-<label>Password</label>
+<label>##EZ_GLOBAL_PASSWORD##</label>
 <input type="password" size="40" name="password" />
 
-<label>Verify Password</label>
+<label>##EZ_GLOBAL_PASSWORD_VERIFY##</label>
 <input type="password" size="40" name="password2" />
 
-<label>Email</label>
+<label>##EZ_GLOBAL_EMAIL##</label>
 <input type="text" size="40" name="email" />
 
-<label>Verify Email</label>
+<label>##EZ_GLOBAL_EMAIL_VERIFY##</label>
 <input type="text" size="40" name="email2" />
 
 <br />
-<input name="register" type="submit" value="Register!" class="button" />
+<input name="register" type="submit" value="##EZ_GLOBAL_REGISTER##!" class="button" />
 </form>
 
 {include file="footer.tpl"}

@@ -1,20 +1,18 @@
-{include file="header.tpl" TITLE="Home"}
+{include file="header.tpl" TITLE="##EZ_GLOBAL_WELCOME##"}
 
-<h1>Home</h1>
+<h1>##EZ_GLOBAL_WELCOME##</h1>
 
-<p>
-Welcome to ezRPG "Simple". You are viewing default theme, which was created specially for you to understand the basics of this PHP engine. For now, you can use the login form to enter the game or admin panel, or register as a new player.
-</p>
+<p>##EZ_GLOBAL_WELCOME_MSG##</p>
 
 <form data-module="Login">
-<label>Username</label>
+<label>##EZ_GLOBAL_USERNAME##</label>
 <input type="text" name="username" />
 
-<label>Password</label>
+<label>##EZ_GLOBAL_PASSWORD##</label>
 <input type="password" name="password" />
 
 <br />
-<input name="login" type="submit" class="button" value="Login!">
+<input name="login" type="submit" class="button" value="##EZ_GLOBAL_LOGIN##">
 </form>
 
 {include file="footer.tpl"}

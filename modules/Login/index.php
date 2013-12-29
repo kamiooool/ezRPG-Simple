@@ -25,16 +25,19 @@ class Module_Login extends Base_Module
 		
 		// Checking if username is not empty, otherwise - return an error
         if (empty($_POST['username'])) {
-            showMsg('Please enter username!', 1);
+			$msg = _e('##EZ_LOGIN_ERROR_1##');
+            showMsg($msg, 1);
         }
         
 		// Checking if password is not empty, otherwise - return an error
         if (empty($_POST['password'])) {
-            showMsg('Please enter your password!', 1);
+			$msg = _e('##EZ_LOGIN_ERROR_2##');
+            showMsg($msg, 1);
         }
         
 		// Fetching and checking info entered from DB, but firstly check the $_POST info for validity
-		isUsername($_POST['username']) or showMsg('Your username contains invalid characters! Please use only letters and digits, longer than 3 chars.',1);
+		$msg = _e('##EZ_LOGIN_ERROR_3##');
+		isUsername($_POST['username']) or showMsg($msg,1);
 		
 		// If username is valid, we can check for that user in DB
         $query = $this->db->execute('SELECT `id`, `username`, `password`, `secret_key` FROM `<ezrpg>players` WHERE `username`=?', array($_POST['username']));
@@ -42,7 +45,8 @@ class Module_Login extends Base_Module
         if ($this->db->numRows($query) == 0) {
 		
 			// If username is not existing
-            showMsg('Please check your username/password!', 1);
+			$msg = _e('##EZ_LOGIN_ERROR_4##');
+            showMsg($msg, 1);
 			
         } else {
             $player = $this->db->fetch($query);
@@ -50,7 +54,8 @@ class Module_Login extends Base_Module
             if ($check != $player->password)
             {
 				// If username is existing, but password is not match. Here is important to show same error as if it was not existing username to avoid password bruteforcing :D
-                showMsg('Please check your username/password!', 1);
+				$msg = _e('##EZ_LOGIN_ERROR_4##');
+                showMsg($msg, 1);
             }
         }
         

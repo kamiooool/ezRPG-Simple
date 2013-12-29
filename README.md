@@ -2,11 +2,12 @@ NOTICE!
 =====
 The "master" branch here currently serves as a developer one, so please be patient and wait till the RC will be released. You MAY download and use this version at any time, however I am not guarantee it to be working :) As of September 2013, master branch counts as a fully and stable working RC.
 
-TODO:
-- Multilingual support + language files
-- Proper data-* attr support
+29 Dec, 2013: Multilingual smarty support added. Now your engine can be fully translated into any language, using only one file (same goes for plugins, simply add to global.lng all the needed strings).
 
-ezRPG 1.0.1 Simple
+TODO:
+- Compilation of language files to single global.lng file from plugins
+
+ezRPG 1.0.2 Simple
 =====
 
 A modular game engine written in PHP, originated by Zeggy.

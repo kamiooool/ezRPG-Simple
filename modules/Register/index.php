@@ -52,36 +52,42 @@ class Module_Register extends Base_Module
 		
 		// Check username
         if (empty($_POST['username'])) {
-		
-            showMsg('Please enter username!', 1);
+			
+			$msg = _e('##EZ_REGISTER_ERROR_1##');
+            showMsg($msg, 1);
 			
         } else if (!isUsername($_POST['username'])) {
 		
 			// If username is too short... Output warning message (notice the 2 in showMsg args)
-			showMsg('Your username must be longer than 3 characters and may only contain alphanumerical characters!', 2);
+			$msg = _e('##EZ_REGISTER_ERROR_2##');
+			showMsg($msg, 2);
 			
         } else if ($result->count > 0) {
 			
 			// If username already exists
-			showMsg('That username has already been used. Please create only one account!', 1);
+			$msg = _e('##EZ_REGISTER_ERROR_3##');
+			showMsg($msg, 1);
 
         }
 		
         //Check password
         if (empty($_POST['password']))
         {
-            showMsg('Please enter your password!', 1);
+			$msg = _e('##EZ_REGISTER_ERROR_4##');
+            showMsg($msg, 1);
         }
         else if (!isPassword($_POST['password']))
         { 
 			//If password is too short...
-            showMsg('Your password is too short!', 2);
+			$msg = _e('##EZ_REGISTER_ERROR_5##');
+            showMsg($msg, 2);
         }
 	
         if ($_POST['password2'] != $_POST['password'])
         {
             //If passwords didn't match
-            showMsg('You didn\'t verified your password correctly!', 1);
+			$msg = _e('##EZ_REGISTER_ERROR_6##');
+            showMsg($msg, 1);
         }
 	
         //Check email
@@ -89,20 +95,24 @@ class Module_Register extends Base_Module
 		
         if (empty($_POST['email']))
         {
-            showMsg('Please enter your correct email!', 1);
+			$msg = _e('##EZ_REGISTER_ERROR_7##');
+            showMsg($msg, 1);
         }
         else if (!isEmail($_POST['email']))
         {
-            showMsg('Your email format is wrong!', 1);
+			$msg = _e('##EZ_REGISTER_ERROR_8##');
+            showMsg($msg, 1);
         }
         else if ($result->count > 0)
         {
-            showMsg('That email has already been used. Please create only one account, creating more than one account will get all your accounts deleted!', 2);
+			$msg = _e('##EZ_REGISTER_ERROR_9##');
+            showMsg($msg, 2);
         }
 	
         if ($_POST['email2'] != $_POST['email'])
         {
-            showMsg('You didn\'t verify your email correctly!', 1);
+			$msg = _e('##EZ_REGISTER_ERROR_10##');
+            showMsg($msg, 1);
         }
 		
 	

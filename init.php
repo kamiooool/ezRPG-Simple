@@ -43,7 +43,7 @@ try {
 unset($config_password);
 
 // Smarty
-$tpl = new Smarty();
+$tpl = new SmartyML(); // Smarty Multilanguage class relies on browser lang params. You can pass it manually, i.e. $tpl = new SmartyML('en');
 $tpl->template_dir = CUR_DIR . '/tpl/default/';
 $tpl->compile_dir  = CUR_DIR . '/tpl/cache/';
 $tpl->config_dir   = CUR_DIR . '/tpl/config/';

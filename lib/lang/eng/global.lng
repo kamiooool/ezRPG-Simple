@@ -1,0 +1,83 @@
+// Important variables - anything that is used more than once (i.e. your game name)
+EZ_GLOBAL_GAMENAME=ezRPG
+// default/index.tpl
+EZ_GLOBAL_WELCOME=Welcome
+EZ_GLOBAL_WELCOME_MSG=Welcome to ezRPG "Simple". You are viewing default theme, which was created specially for you to understand the basics of this PHP engine. For now, you can use the login form to enter the game or admin panel, or register as a new player.
+EZ_GLOBAL_USERNAME=Username
+EZ_GLOBAL_PASSWORD=Password
+EZ_GLOBAL_LOGIN=Login
+// default/home.tpl
+EZ_GLOBAL_HOME=Home
+EZ_GLOBAL_REGISTERED=Registered
+EZ_GLOBAL_EMAIL=E-mail
+EZ_GLOBAL_KILLSDEATHS=Kills/Deaths
+EZ_GLOBAL_STATPOINTS_LEFT=You have {$player->stat_points} stat points <b>left over</b>!
+EZ_GLOBAL_STATPOINTS_SPENDNOW=Spend them now!
+EZ_GLOBAL_NO_STATPOINTS=You have no extra stat points to spend.
+EZ_GLOBAL_LEVEL=Level
+EZ_GLOBAL_GOLD=Gold
+EZ_GLOBAL_STRENGTH=Strength
+EZ_GLOBAL_VITALITY=Vitality
+EZ_GLOBAL_AGILITY=Agility
+EZ_GLOBAL_DEXTERITY=Dexterity
+// default/register.tpl
+EZ_GLOBAL_REGISTER=Register
+EZ_GLOBAL_REGISTER_MSG=Want to join the fun? Fill out the form below to register!
+EZ_GLOBAL_PASSWORD_VERIFY=Verify password
+EZ_GLOBAL_EMAIL_VERIFY=Verify email
+// default/statpoints.tpl
+EZ_GLOBAL_STATPOINTS=Stat points
+EZ_GLOBAL_STATPOINTS_MSG=Here you can use your stat points to increase your stats! You have <strong>{$player->stat_points}</strong> points to use!<br /><br />You receive stat points when you first sign up to the game, and also each time when you level up!
+EZ_GLOBAL_STRENGTH_DESCRIPTION=increases the damage you do in battle, and increases your weight limit so you can carry more items.
+EZ_GLOBAL_VITALITY_DESCRIPTION=increases the amount of health you have and decreases the amount of damage you receive in battle.
+EZ_GLOBAL_AGILITY_DESCRIPTION=increases your chance to completely dodge and attack and take no damage in battle!
+EZ_GLOBAL_DEXTERITY_DESCRIPTION=helps you aim better so you are less likely to miss your opponent.
+// default/header.tpl
+EZ_GLOBAL_PLAYERS_ONLINE=Players online:
+EZ_GLOBAL_MEMBERS=Members
+EZ_GLOBAL_ACCOUNT=Account
+EZ_GLOBAL_ADMIN=Admin
+EZ_GLOBAL_LOGOUT=Logout
+// default/account_settings.tpl
+EZ_GLOBAL_ACCOUNT_SETTINGS=Account Settings
+EZ_GLOBAL_ACCOUNT_PAGE_MSG=Here you can change your password.
+EZ_GLOBAL_CURRENT_PASSWORD=Current password
+EZ_GLOBAL_NEW_PASSWORD=New password
+EZ_GLOBAL_VERIFY_NEW_PASSWORD=Verify new password
+EZ_GLOBAL_CHANGE_PASSWORD=Change password
+// default/members.tpl
+EZ_GLOBAL_PREVPAGE=Previous page
+EZ_GLOBAL_NEXTPAGE=Next page
+// default/sidebar.tpl
+EZ_GLOBAL_HP=HP
+EZ_GLOBAL_EXP=EXP
+EZ_GLOBAL_ENERGY=ENERGY
+EZ_GLOBAL_NEW_LOGS_MSG=New Logs message!
+// modules/AccountSettings
+EZ_ACCOUNTSETTINGS_ERROR_1=You forgot to fill in something
+EZ_ACCOUNTSETTINGS_ERROR_2=Current account password you've entered is invalid!
+EZ_ACCOUNTSETTINGS_ERROR_3=Your password must be longer than 3 characters!
+EZ_ACCOUNTSETTINGS_ERROR_4=You didn't confirm your new password correctly!
+EZ_ACCOUNTSETTINGS_SUCCESS_MSG=You have changed your password.
+// modules/Login
+EZ_LOGIN_ERROR_1=Please enter username!
+EZ_LOGIN_ERROR_2=Please enter your password!
+EZ_LOGIN_ERROR_3=Your username contains invalid characters! Please use only letters and digits, longer than 3 chars.
+EZ_LOGIN_ERROR_4=Please check your username/password!
+// modules/Register
+EZ_REGISTER_ERROR_1=Please enter username!
+EZ_REGISTER_ERROR_2=Your username must be longer than 3 characters and may only contain alphanumerical characters!
+EZ_REGISTER_ERROR_3=That username has already been used. Please create only one account!
+EZ_REGISTER_ERROR_4=Please enter your password!
+EZ_REGISTER_ERROR_5=Your password is too short!
+EZ_REGISTER_ERROR_6=You didn't verified your password correctly!
+EZ_REGISTER_ERROR_7=Please enter your correct email!
+EZ_REGISTER_ERROR_8=Your email format is wrong!
+EZ_REGISTER_ERROR_9=That email has already been used. Please create only one account, creating more than one account will get all your accounts deleted!
+EZ_REGISTER_ERROR_10=You didn't verify your email correctly!
+// modules/StatPoints
+EZ_STATPOINTS_NOPOINTS_LEFT=You have no points left to spend!
+EZ_STATPOINTS_STR_INCREASE=You have increased your strength!
+EZ_STATPOINTS_VIT_INCREASE=You have increased your vitality!
+EZ_STATPOINTS_AGI_INCREASE=You have increased your agility!
+EZ_STATPOINTS_DEX_INCREASE=You have increased your dexterity!

@@ -34,7 +34,8 @@ class Module_StatPoints extends Base_Module
 			}
 			else
 			{
-				showMsg('You have no points left to spend!',2);
+				$msg = _e('##EZ_STATPOINTS_NOPOINTS_LEFT##');
+				showMsg($msg,2);
 			}
 		}
 		else
@@ -71,7 +72,8 @@ class Module_StatPoints extends Base_Module
 				strength=strength+1
 				WHERE id=?', array($this->player->id));
               
-			  showMsg('You have increased your strength!',3);
+			  $msg = _e('##EZ_STATPOINTS_STR_INCREASE##');
+			  showMsg($msg,3);
               break;
           case 'stat_vit':
               //Add to hp and max_hp
@@ -82,7 +84,8 @@ class Module_StatPoints extends Base_Module
 				max_hp=max_hp+5
 				WHERE id=?', array($this->player->id));
               
-              showMsg('You have increased your vitality!',3);
+			  $msg = _e('##EZ_STATPOINTS_VIT_INCREASE##');
+              showMsg($msg,3);
               break;
           case 'stat_agi':
               $query = $this->db->execute('UPDATE <ezrpg>players SET
@@ -90,7 +93,8 @@ class Module_StatPoints extends Base_Module
 				agility=agility+1
 				WHERE id=?', array($this->player->id));
               
-              showMsg('You have increased your agility!',3);
+			  $msg = _e('##EZ_STATPOINTS_AGI_INCREASE##');
+              showMsg($msg,3);
               break;
           case 'stat_dex':
               $query = $this->db->execute('UPDATE <ezrpg>players SET
@@ -98,7 +102,8 @@ class Module_StatPoints extends Base_Module
 				dexterity=dexterity+1
 				WHERE id=?', array($this->player->id));
               
-              showMsg('You have increased your dexterity!',3);
+			  $msg = _e('##EZ_STATPOINTS_DEX_INCREASE##');
+              showMsg($msg,3);
               break;
           default:
               break;

@@ -1,0 +1,82 @@
+// Важные переменные - например, название вашей игры (используется везде) или версия перевода, что угодно, что используется неоднократно
+// default/index.tpl
+EZ_GLOBAL_WELCOME=Привет!
+EZ_GLOBAL_WELCOME_MSG=Добро пожаловать на сайт &#61;) Эта сборка называется ezRPG "Simple". Сейчас вы просматриваете главную страницу шаблона, которая показана всем незарегистрированным пользователям. Тут может быть любая информация, а эта строка может быть изменена в файле "global.lng" в папке русского языка (lib/lang/rus). В скором времени тут также будет ссылка на развёрнутую документацию о том, как работать с этим движком. Ну а пока вы можете залогиниться под своим аккаунтом, либо зарегистрироваться как новый игрок, чтобы увидеть непосредственно страницу для игроков.
+EZ_GLOBAL_USERNAME=Логин
+EZ_GLOBAL_PASSWORD=Пароль
+EZ_GLOBAL_LOGIN=Вход
+// default/home.tpl
+EZ_GLOBAL_HOME=Главная
+EZ_GLOBAL_REGISTERED=Зарегистрирован
+EZ_GLOBAL_EMAIL=Почта
+EZ_GLOBAL_KILLSDEATHS=Убийств/Смертей
+EZ_GLOBAL_STATPOINTS_LEFT=У вас осталось ещё целых {$player->stat_points} <b>очков навыков</b>!
+EZ_GLOBAL_STATPOINTS_SPENDNOW=Потратить их!
+EZ_GLOBAL_NO_STATPOINTS=В данный момент у вас нет очков опыта.
+EZ_GLOBAL_LEVEL=Уровень
+EZ_GLOBAL_GOLD=Золото
+EZ_GLOBAL_STRENGTH=Сила
+EZ_GLOBAL_VITALITY=Выносливость
+EZ_GLOBAL_AGILITY=Ловкость
+EZ_GLOBAL_DEXTERITY=Проворство
+// default/register.tpl
+EZ_GLOBAL_REGISTER=Регистрация
+EZ_GLOBAL_REGISTER_MSG=Тоже хочешь присоединиться к веселью? Заполни форму для регистрации - и вперёд!
+EZ_GLOBAL_PASSWORD_VERIFY=Подтверждение пароля
+EZ_GLOBAL_EMAIL_VERIFY=Подтверждение почты
+// default/statpoints.tpl
+EZ_GLOBAL_STATPOINTS=Статпоинты
+EZ_GLOBAL_STATPOINTS_MSG=На этой странице вы можете увеличивать ваши атрибуты с помощью имеющихся очков навыков. На данный момент у вас <strong>{$player->stat_points}</strong> очков!<br /><br />Вы получаете эти очки, когда впервые заходите в игру, а также за каждый новый уровень!
+EZ_GLOBAL_STRENGTH_DESCRIPTION=увеличивает наносимый урон в бою, а также увеличивает лимит допустимого веса, чтобы вы могли таскать с собой больше предметов, ага!
+EZ_GLOBAL_VITALITY_DESCRIPTION=увеличивает ваше здоровье и уменьшает наносимый в бою урон. Мечта любого танка!
+EZ_GLOBAL_AGILITY_DESCRIPTION=увеличивает шанс увернуться от атаки
+EZ_GLOBAL_DEXTERITY_DESCRIPTION=увеличивает вашу меткость, таким образом повышая шанс попасть по юркому врагу
+// default/header.tpl
+EZ_GLOBAL_PLAYERS_ONLINE=Игроков в онлайне:
+EZ_GLOBAL_MEMBERS=Игроки
+EZ_GLOBAL_ACCOUNT=Аккаунт
+EZ_GLOBAL_ADMIN=Админ
+EZ_GLOBAL_LOGOUT=Выход
+// default/account_settings.tpl
+EZ_GLOBAL_ACCOUNT_SETTINGS=Настройки аккаунта
+EZ_GLOBAL_ACCOUNT_PAGE_MSG=Тут вы можете сменить ваш текущий пароль.
+EZ_GLOBAL_CURRENT_PASSWORD=Текущий пароль
+EZ_GLOBAL_NEW_PASSWORD=Новый пароль
+EZ_GLOBAL_VERIFY_NEW_PASSWORD=Подтвердите новый пароль
+EZ_GLOBAL_CHANGE_PASSWORD=Сменить пароль
+// default/members.tpl
+EZ_GLOBAL_PREVPAGE=Предыдущая страница
+EZ_GLOBAL_NEXTPAGE=Следующая страница
+// default/sidebar.tpl
+EZ_GLOBAL_HP=ХП
+EZ_GLOBAL_EXP=ОПЫТ
+EZ_GLOBAL_ENERGY=ЭНЕРГИЯ
+EZ_GLOBAL_NEW_LOGS_MSG=У вас есть новые сообщения!
+// modules/AccountSettings
+EZ_ACCOUNTSETTINGS_ERROR_1=Вы не заполнили поля!
+EZ_ACCOUNTSETTINGS_ERROR_2=Текущий пароль от аккаунта, который вы указали - неправильный!
+EZ_ACCOUNTSETTINGS_ERROR_3=Длина вашего пароля должна быть более 3-х символов
+EZ_ACCOUNTSETTINGS_ERROR_4=Подтверждение пароля неверное!
+EZ_ACCOUNTSETTINGS_SUCCESS_MSG=Вы успешно сменили ваш пароль.
+// modules/Login
+EZ_LOGIN_ERROR_1=Вы не ввели свой логин!
+EZ_LOGIN_ERROR_2=Вы не ввели свой пароль!
+EZ_LOGIN_ERROR_3=Логин содержит недопустимые символы, а также должен быть длиннее 3 символов!
+EZ_LOGIN_ERROR_4=Ваш логин или пароль введён неверно!
+// modules/Register
+EZ_REGISTER_ERROR_1=Укажите ваш логин!
+EZ_REGISTER_ERROR_2=Логин должен содержать только буквы и цифры, и не должен быть короче 3 символов
+EZ_REGISTER_ERROR_3=Этот аккаунт уже существует! Придумайте новый!
+EZ_REGISTER_ERROR_4=Введите свой пароль!
+EZ_REGISTER_ERROR_5=Ваш пароль слишком короткий!
+EZ_REGISTER_ERROR_6=Вы неверно ввели свой пароль повторно!
+EZ_REGISTER_ERROR_7=Пожалуйста, укажите ваш e-mail!
+EZ_REGISTER_ERROR_8=Пожалуйста, укажите правильный e-mail!
+EZ_REGISTER_ERROR_9=Этот e-mail уже используется, пожалуйста укажите другой e-mail!
+EZ_REGISTER_ERROR_10=Повторный e-mail введён неправильно!
+// modules/StatPoints
+EZ_STATPOINTS_NOPOINTS_LEFT=У вас больше не осталось доступных очков навыков
+EZ_STATPOINTS_STR_INCREASE=+1 к силе! Оуесс, мои мускулы растут!
+EZ_STATPOINTS_VIT_INCREASE=Вы увеличили выносливость на +1
+EZ_STATPOINTS_AGI_INCREASE=Вы увеличили ловкость на +1
+EZ_STATPOINTS_DEX_INCREASE=+1 к проворству и сноровке!

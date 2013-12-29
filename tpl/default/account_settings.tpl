@@ -1,24 +1,22 @@
-{include file="header.tpl" TITLE="Account Settings"}
+{include file="header.tpl" TITLE="##EZ_GLOBAL_ACCOUNT_SETTINGS##"}
 
-<h1>Account Settings</h1>
+<h1>##EZ_GLOBAL_ACCOUNT_SETTINGS##</h1>
 
-<p>
-Here you can change your password.
-</p>
+<p>##EZ_GLOBAL_ACCOUNT_PAGE_MSG##</p>
 
 <form data-module="AccountSettings">
 
-<label>Current Password</label>
+<label>##EZ_GLOBAL_CURRENT_PASSWORD##</label>
 <input type="password" size="40" name="current_password" autocomplete="off" />
 
-<label>New Password</label>
+<label>##EZ_GLOBAL_NEW_PASSWORD##</label>
 <input type="password" size="40" name="new_password" autocomplete="off" />
 
-<label>Verify New Password</label>
+<label>##EZ_GLOBAL_VERIFY_NEW_PASSWORD##</label>
 <input type="password" size="40" name="new_password2" autocomplete="off" />
 
 <br />
-<input name="change_password" type="submit" value="Change Password" class="button" />
+<input name="change_password" type="submit" value="##EZ_GLOBAL_CHANGE_PASSWORD##" class="button" />
 
 </form>
 

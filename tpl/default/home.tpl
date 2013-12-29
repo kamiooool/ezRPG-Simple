@@ -1,19 +1,19 @@
-{include file="header.tpl" TITLE="Home"}
+{include file="header.tpl" TITLE="##EZ_GLOBAL_HOME##"}
 
-<h1>Home</h1>
+<h1>##EZ_GLOBAL_HOME##</h1>
 
 <div class="left">
 <p>
-<strong>Username</strong>: {$player->username}<br />
-<strong>Email</strong>: {$player->email}<br />
-<strong>Registered</strong>: {$player->registered|date_format:'%B %e, %Y %l:%M %p'}<br />
-<strong>Kills/Deaths</strong>: {$player->kills}/{$player->deaths}<br />
+<strong>##EZ_GLOBAL_USERNAME##</strong>: {$player->username}<br />
+<strong>##EZ_GLOBAL_EMAIL##</strong>: {$player->email}<br />
+<strong>##EZ_GLOBAL_REGISTERED##</strong>: {$player->registered|date_format:'%B %e, %Y %l:%M %p'}<br />
+<strong>##EZ_GLOBAL_KILLSDEATHS##</strong>: {$player->kills}/{$player->deaths}<br />
 <br />
 {if $player->stat_points > 0}
-You have {$player->stat_points} stat points left over!<br />
-<a href="index.php?mod=StatPoints"><strong>Spend them now!</strong></a>
+##EZ_GLOBAL_STATPOINTS_LEFT##<br />
+<a href="index.php?mod=StatPoints"><strong>##EZ_GLOBAL_STATPOINTS_SPENDNOW##</strong></a>
 {else}
-You have no extra stat points to spend.
+##EZ_GLOBAL_NO_STATPOINTS##
 {/if}
 </p>
 </div>
@@ -21,13 +21,13 @@ You have no extra stat points to spend.
 
 <div class="right">
 <p>
-<strong>Level</strong>: {$player->level}<br />
-<strong>Gold</strong>: {$player->money}<br />
+<strong>##EZ_GLOBAL_LEVEL##</strong>: {$player->level}<br />
+<strong>##EZ_GLOBAL_GOLD##</strong>: {$player->money}<br />
 <br />
-<strong>Strength</strong>: {$player->strength}<br />
-<strong>Vitality</strong>: {$player->vitality}<br />
-<strong>Agility</strong>: {$player->agility}<br />
-<strong>Dexterity</strong>: {$player->dexterity}<br />
+<strong>##EZ_GLOBAL_STRENGTH##</strong>: {$player->strength}<br />
+<strong>##EZ_GLOBAL_VITALITY##</strong>: {$player->vitality}<br />
+<strong>##EZ_GLOBAL_AGILITY##</strong>: {$player->agility}<br />
+<strong>##EZ_GLOBAL_DEXTERITY##</strong>: {$player->dexterity}<br />
 </p>
 </div>
 
