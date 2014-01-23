@@ -1,0 +1,83 @@
+// Important variables - anything that is used more than once (i.e. your game name)
+EZ_GLOBAL_GAMENAME=ezRPG
+// default/index.tpl
+EZ_GLOBAL_WELCOME=Witaj
+EZ_GLOBAL_WELCOME_MSG=Witamy na ezRPG "Simple". oglądasz domyślny szablon, został on stworzony specjalnie dla Ciebie abyś zrozumiał podstawy tego silnika PHP. Możesz teraz użyć formularza logowania aby wejść do gry, lub panelu admina, możesz również zarejestrować nowe konto.
+EZ_GLOBAL_USERNAME=Użytkownik
+EZ_GLOBAL_PASSWORD=Hasło
+EZ_GLOBAL_LOGIN=Zaloguj
+// default/home.tpl
+EZ_GLOBAL_HOME=Home
+EZ_GLOBAL_REGISTERED=Zarejestrowany
+EZ_GLOBAL_EMAIL=E-mail
+EZ_GLOBAL_KILLSDEATHS=Zabójstwa/Zgony
+EZ_GLOBAL_STATPOINTS_LEFT=Posiadasz {$player->stat_points} punktów statystyk <b>do użycia</b>!
+EZ_GLOBAL_STATPOINTS_SPENDNOW=Rozdziel punkty teraz!
+EZ_GLOBAL_NO_STATPOINTS=Nie posiadasz żadnych punktów statystyk.
+EZ_GLOBAL_LEVEL=Level
+EZ_GLOBAL_GOLD=Złoto
+EZ_GLOBAL_STRENGTH=Siła
+EZ_GLOBAL_VITALITY=Witalność
+EZ_GLOBAL_AGILITY=Zwinność
+EZ_GLOBAL_DEXTERITY=Zręczność
+// default/register.tpl
+EZ_GLOBAL_REGISTER=Rejestruj
+EZ_GLOBAL_REGISTER_MSG=Chcesz dołączyć do zabawy? Wypełnij poniższy formularz aby sie zarejestrować!
+EZ_GLOBAL_PASSWORD_VERIFY=Potwierdź hasło
+EZ_GLOBAL_EMAIL_VERIFY=Potwierdź e-mail
+// default/statpoints.tpl
+EZ_GLOBAL_STATPOINTS=Punkty statystyk
+EZ_GLOBAL_STATPOINTS_MSG=Tutaj pożesz podnieść statystyki używając punktów statystyk! Posiadasz <strong>{$player->stat_points}</strong> punktów do użycia!<br /><br />Punkty statystyk dostajesz gdy pierwszy raz zalogujesz sie do gry oraz z każdym zdobytym levelem.
+EZ_GLOBAL_STRENGTH_DESCRIPTION=Zwieksza obrażenia zadawane podczas walki oraz podnosi limit cięzaru jaki możesz unieść dla przedmiotów.
+EZ_GLOBAL_VITALITY_DESCRIPTION=Zwieksza ilość Twojego życia oraz obniża obrażenia jakie dostajesz podczas walki.
+EZ_GLOBAL_AGILITY_DESCRIPTION=Zwiększa szanse na unik i nie otrzymanie żadnych obrażen podczas walki.
+EZ_GLOBAL_DEXTERITY_DESCRIPTION=Zwieksza Twoją celność, zmniejsza szanse przeciwnika na unik.
+// default/header.tpl
+EZ_GLOBAL_PLAYERS_ONLINE=Gracze online:
+EZ_GLOBAL_MEMBERS=Użytkownicy
+EZ_GLOBAL_ACCOUNT=Konto
+EZ_GLOBAL_ADMIN=Admin
+EZ_GLOBAL_LOGOUT=Wyloguj
+// default/account_settings.tpl
+EZ_GLOBAL_ACCOUNT_SETTINGS=Ustawienia konta
+EZ_GLOBAL_ACCOUNT_PAGE_MSG=Tu możesz zmienić hasło.
+EZ_GLOBAL_CURRENT_PASSWORD=Aktualne hasło
+EZ_GLOBAL_NEW_PASSWORD=Nowe hasło
+EZ_GLOBAL_VERIFY_NEW_PASSWORD=Potwierdź nowe hasło
+EZ_GLOBAL_CHANGE_PASSWORD=Zmień hasło
+// default/members.tpl
+EZ_GLOBAL_PREVPAGE=Poprzednia strona
+EZ_GLOBAL_NEXTPAGE=Następna strona
+// default/sidebar.tpl
+EZ_GLOBAL_HP=HP
+EZ_GLOBAL_EXP=EXP
+EZ_GLOBAL_ENERGY=ENERGIA
+EZ_GLOBAL_NEW_LOGS_MSG=Nowe informacja o zdarzeniu!
+// modules/AccountSettings
+EZ_ACCOUNTSETTINGS_ERROR_1=Zapomniałeś czegoś uzupełnić.
+EZ_ACCOUNTSETTINGS_ERROR_2=Hasło które wpisałeś nie jest poprawne!
+EZ_ACCOUNTSETTINGS_ERROR_3=Hasło musi byc dłuższe niż 3 znaki!
+EZ_ACCOUNTSETTINGS_ERROR_4=Nie potwierdziles swojego nowego hasła prawidłowo!
+EZ_ACCOUNTSETTINGS_SUCCESS_MSG=Zmieniłeś swoje hasło.
+// modules/Login
+EZ_LOGIN_ERROR_1=Wpisz swoją nazwa użytkownika!
+EZ_LOGIN_ERROR_2=Wpisz swoje hasło!
+EZ_LOGIN_ERROR_3=Nazwa użytkownika jest nieprawidłowo! Używaj tylko liter i cyfer, dłuższych niż 3 znaki.
+EZ_LOGIN_ERROR_4=Sprawdź nazwe użytkownika/hasło!
+// modules/Register
+EZ_REGISTER_ERROR_1=Wprowadź nazwę użytkownika!
+EZ_REGISTER_ERROR_2=Nazwa użytkownika musi być dłuższa niz 3 znaki i może zawieraz tylko alfanumeryczne znaki!
+EZ_REGISTER_ERROR_3=Taka nazwa użytkonika już istnieje, Używaj tylko jednego konta.
+EZ_REGISTER_ERROR_4=Proszę podać hasło.
+EZ_REGISTER_ERROR_5=Hasło jest za krótkie!
+EZ_REGISTER_ERROR_6=Nie potwierdziłeś swojego hasła prawidłowo!
+EZ_REGISTER_ERROR_7=Proszę podać prawidłowy e-mail!!
+EZ_REGISTER_ERROR_8=Format email jest nieprawidłowy!
+EZ_REGISTER_ERROR_9=Taki email jest już w użyciu. Używaj tylko jednego konta, jeśli będzie ich więcej wszystkie zostaną skasowane.
+EZ_REGISTER_ERROR_10=Nie potwierdziłeś swojego e-mail!
+// modules/StatPoints
+EZ_STATPOINTS_NOPOINTS_LEFT=Nie masz punktów do rozdania.
+EZ_STATPOINTS_STR_INCREASE=Zwiekszyłeś swoją siłę!
+EZ_STATPOINTS_VIT_INCREASE=Zwiekszyłeś swoją witalność!
+EZ_STATPOINTS_AGI_INCREASE=Zwiekszyłeś swoją zwinność!
+EZ_STATPOINTS_DEX_INCREASE=Zwiekszyłeś swoją zręczność!
